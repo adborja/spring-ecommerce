@@ -3,7 +3,7 @@ package co.edu.cedesistemas.ecommerce.model;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Store implements AbstractEntity<String> {
+public class Store implements Entity<String> {
     private String id;
     private String name;
     private String phone;

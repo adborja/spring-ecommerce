@@ -1,10 +1,10 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.AbstractEntity;
+import co.edu.cedesistemas.ecommerce.model.Entity;
 
 import java.util.Map;
 
-public abstract class AbstractMapRepository<T extends AbstractEntity<ID>, ID> implements MapRepository<T, ID> {
+public abstract class AbstractMapRepository<T extends Entity<ID>, ID> implements MapRepository<T, ID> {
     protected final Map<ID, T> repository;
 
     public AbstractMapRepository(Map<ID, T> repository) {

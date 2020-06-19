@@ -1,5 +1,5 @@
 package co.edu.cedesistemas.ecommerce.model;
 
-public interface AbstractEntity<ID> {
+public interface Entity<ID> {
     ID getId();
 }
