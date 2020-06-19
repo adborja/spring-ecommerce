@@ -2,7 +2,7 @@ package co.edu.cedesistemas.ecommerce.model;
 
 import java.util.Objects;
 
-public class Order {
+public class Order implements Entity<String>{
     private String id;
     private User user;
     private Store store;

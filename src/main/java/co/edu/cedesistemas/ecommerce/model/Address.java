@@ -2,7 +2,7 @@ package co.edu.cedesistemas.ecommerce.model;
 
 import java.util.Objects;
 
-public class Address {
+public class Address implements Entity<String>{
     private String id;
     private String name;
     private String description;
