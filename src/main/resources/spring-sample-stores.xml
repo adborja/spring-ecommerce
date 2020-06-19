@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="store1" name="store1" class="co.edu.cedesistemas.ecommerce.model.Store">
+        <property name="name" value="the pet store" />
+        <property name="address" value="Cr. 54 # 65 - 60" />
+        <property name="phone" value="+574986332" />
+    </bean>
+    <bean id="store2" name="store2" class="co.edu.cedesistemas.ecommerce.model.Store">
+        <property name="name" value="the car workshop" />
+        <property name="address" value="Cl. 10 # 43 - 25" />
+        <property name="phone" value="+574444058" />
+    </bean>
+    <bean id="store3" name="store3" class="co.edu.cedesistemas.ecommerce.model.Store">
+        <property name="name" value="the beaf store" />
+        <property name="address" value="Cr. 80 # 33 - 100" />
+        <property name="phone" value="+574992510" />
+    </bean>
+</beans>
