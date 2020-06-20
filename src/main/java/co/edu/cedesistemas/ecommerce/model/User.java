@@ -2,12 +2,13 @@ package co.edu.cedesistemas.ecommerce.model;
 
 import java.util.Objects;
 
-public class User {
+public class User implements Entity<String> {
     private String id;
     private String name;
     private String lastName;
     private String email;
 
+    @Override
     public String getId() {
         return id;
     }
@@ -51,5 +52,8 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public static class ProductMapRepository {
     }
 }
