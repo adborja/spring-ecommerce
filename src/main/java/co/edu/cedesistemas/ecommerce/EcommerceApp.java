@@ -12,7 +12,8 @@ import java.util.Set;
 public class EcommerceApp {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml",
-                "spring-sample-stores.xml", "sprint-sample-users.xml");
+                "spring-sample-stores.xml", "spring-sample-users.xml");
+
         Store store1 = context.getBean("store1", Store.class);
         Store store2 = context.getBean("store2", Store.class);
         Store store3 = context.getBean("store3", Store.class);
