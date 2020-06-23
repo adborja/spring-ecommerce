@@ -1,11 +1,12 @@
 package co.edu.cedesistemas.ecommerce.service;
 
-import co.edu.cedesistemas.ecommerce.UserMapRepository;
 import co.edu.cedesistemas.ecommerce.model.User;
+import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
 
+import java.util.Set;
 import java.util.UUID;
 
-public class UserService extends User {//TODO Está bien extender de User sin usar la interfaz?
+public class UserService {
     private final UserMapRepository repository;
 
     public UserService(final UserMapRepository repository) {
@@ -14,7 +15,6 @@ public class UserService extends User {//TODO Está bien extender de User sin us
 
     public User createUser(User user) {
         user.setId(UUID.randomUUID().toString());
-        user.setEmail("dummy@summy.com");
         return repository.save(user);
     }
 
@@ -26,9 +26,8 @@ public class UserService extends User {//TODO Está bien extender de User sin us
         repository.remove(id);
     }
 
-    @Override//TODO Está bien extender de User sin usar la interfaz?
-    public String getEmail() {
-        return super.getEmail();
+    public Set<User> getByEmail(final String email) {
+        return repository.findByEmail(email);
     }
 
     public Iterable<User> getAllUsers() {
