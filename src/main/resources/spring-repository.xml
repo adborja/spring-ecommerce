@@ -13,8 +13,4 @@
     <bean id="store-jdbc-repository" name="store-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.StoreJdbcRepository">
         <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
-    <bean id="storeService" class="co.edu.cedesistemas.ecommerce.service.StoreService" >
-        <!--constructor-arg name="repository" ref="store-map-repository" /-->
-        <constructor-arg name="repository" ref="store-jdbc-repository" />
-    </bean>
 </beans>
