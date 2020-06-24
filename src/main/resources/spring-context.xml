@@ -9,4 +9,11 @@
     <bean id="storeService" class="co.edu.cedesistemas.ecommerce.service.StoreService" >
         <constructor-arg name="repository" ref="storeRepository" />
     </bean>
+    //adicionamos la parte de usuarios
+    <bean id="userRepository" name="userRepository" class="co.edu.cedesistemas.ecommerce.repository.UserMapRepository">
+        <constructor-arg name="repository" ref="userMap" />
+    </bean>
+    <bean id="userService" class="co.edu.cedesistemas.ecommerce.service.UserService" >
+        <constructor-arg name="repository" ref="userRepository" />
+    </bean>
 </beans>
