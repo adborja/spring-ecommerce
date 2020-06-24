@@ -3,6 +3,7 @@ package co.edu.cedesistemas.ecommerce.service;
 import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
 
+import java.util.Set;
 import java.util.UUID;
 
 public class UserService {
@@ -30,8 +31,12 @@ public class UserService {
     }
 
     //Buscar usuario por email
-    public User getByEmail(final String email){
-        return repository.findById(email);
+    public Set<User> getByEmail(final String email){
+        return repository.findByEmail(email);
     }
 
+    //Buscar todos los usuarios
+    public Iterable<User> getAllUsers(){
+        return repository.findAll();
+    }
 }
