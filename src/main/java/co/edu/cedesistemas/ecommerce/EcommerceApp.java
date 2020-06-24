@@ -38,12 +38,13 @@ public class EcommerceApp {
         Iterable<Store> allStores = storeService.getAllStores();
         allStores.forEach(System.out::println);
 
-        // Finding store by name
         // Finding stores by name ...
         Set<Store> found = storeService.getByName("the");
         found.forEach(System.out::println);
 
-
+        // Finding stores by type ...
+        List<Store> foundByType = (List<Store>) storeService.getStoresByType(Store.Type.AUTO_PARTS);
+        foundByType.forEach(System.out::println);
 
         // Storing Users ..
         user1 = userService.createUser(user1);
@@ -64,5 +65,7 @@ public class EcommerceApp {
         // Finding stores by name ...
         Set<User> foundUser = userService.getByEmail("carlosrojas@mail.com");
         foundUser.forEach(System.out::println);
+
+
     }
 }

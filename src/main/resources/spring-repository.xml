@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="spring-datasource.xml" />
+    <bean id="storeMap" class="java.util.HashMap" />
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="ecommerce-mysql-ds" />
+    </bean>
+    <bean id="store-map-repository" name="store-map-repository" class="co.edu.cedesistemas.ecommerce.repository.StoreMapRepository">
+        <constructor-arg name="repository" ref="storeMap" />
+    </bean>
+    <bean id="store-jdbc-repository" name="store-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.StoreJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+</beans>

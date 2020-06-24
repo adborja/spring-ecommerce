@@ -2,12 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="storeMap" class="java.util.HashMap" />
-    <bean id="storeRepository" name="storeRepository" class="co.edu.cedesistemas.ecommerce.repository.StoreMapRepository">
-        <constructor-arg name="repository" ref="storeMap" />
-    </bean>
+    <import resource="spring-repository.xml" />
     <bean id="storeService" class="co.edu.cedesistemas.ecommerce.service.StoreService" >
-        <constructor-arg name="repository" ref="storeRepository" />
+        <!--constructor-arg name="repository" ref="store-map-repository" /-->
+        <constructor-arg name="repository" ref="store-jdbc-repository" />
     </bean>
 
     <bean id="userRepository" name="userRepository" class="co.edu.cedesistemas.ecommerce.repository.UserMapRepository">
