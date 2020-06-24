@@ -8,6 +8,7 @@ public class Store implements Entity<String> {
     private String name;
     private String phone;
     private String address;
+    private Type type;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -44,6 +45,14 @@ public class Store implements Entity<String> {
         this.address = address;
     }
 
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -58,6 +67,16 @@ public class Store implements Entity<String> {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public enum Type {
+        TECHNOLOGY,
+        SPORTS,
+        PETS,
+        BOOKS,
+        FITNESS,
+        AUTO_PARTS,
+        FOOD
     }
 
     @Override
