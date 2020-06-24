@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StoreMapRepository extends AbstractMapRepository<Store, String> {
-    public StoreMapRepository(Map<String, Store> repository) {
+    public StoreMapRepository(Map<ID, T> repository) {
         super(repository);
     }
 
