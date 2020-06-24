@@ -2,15 +2,16 @@ package co.edu.cedesistemas.ecommerce.model;
 
 import java.util.Objects;
 
-public class OrderItem {
+public class OrderItem <ID> implements Entity<ID> {
     private String id;
     private String orderId;
     private Product product;
     private Float finalPrice;
     private Integer quantity;
 
-    public String getId() {
-        return id;
+    @Override
+    public ID getId() {
+        return (ID) id;
     }
 
     public void setId(String id) {

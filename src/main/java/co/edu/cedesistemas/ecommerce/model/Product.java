@@ -2,13 +2,14 @@ package co.edu.cedesistemas.ecommerce.model;
 
 import java.util.Objects;
 
-public class Product {
+public class Product <ID> implements Entity<ID> {
     private String id;
     private String name;
     private String description;
 
-    public String getId() {
-        return id;
+    @Override
+    public ID getId() {
+        return (ID) id;
     }
 
     public void setId(String id) {
