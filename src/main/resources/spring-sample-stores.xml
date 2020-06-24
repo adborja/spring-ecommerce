@@ -6,15 +6,18 @@
         <property name="name" value="the pet store" />
         <property name="address" value="Cr. 54 # 65 - 60" />
         <property name="phone" value="+574986332" />
+        <property name="type" value="PETS" />
     </bean>
     <bean id="store2" name="store2" class="co.edu.cedesistemas.ecommerce.model.Store">
         <property name="name" value="the car workshop" />
         <property name="address" value="Cl. 10 # 43 - 25" />
         <property name="phone" value="+574444058" />
+        <property name="type" value="AUTO_PARTS" />
     </bean>
     <bean id="store3" name="store3" class="co.edu.cedesistemas.ecommerce.model.Store">
         <property name="name" value="the beaf store" />
         <property name="address" value="Cr. 80 # 33 - 100" />
         <property name="phone" value="+574992510" />
+        <property name="type" value="FOOD" />
     </bean>
 </beans>

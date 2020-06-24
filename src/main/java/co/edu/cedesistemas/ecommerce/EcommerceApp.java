@@ -15,6 +15,7 @@ public class EcommerceApp {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml",
                 "spring-sample-stores.xml", "spring-sample-users.xml");
 
+
         Store store1 = context.getBean("store1", Store.class);
         Store store2 = context.getBean("store2", Store.class);
         Store store3 = context.getBean("store3", Store.class);
@@ -35,10 +36,13 @@ public class EcommerceApp {
         Iterable<Store> allStores = storeService.getAllStores();
         allStores.forEach(System.out::println);
 
-        // Finding store by name
         // Finding stores by name ...
-        Set<Store> found = storeService.getByName("the");
+        List<Store> found = storeService.getByName("the");
         found.forEach(System.out::println);
+
+            // Finding stores by type ...
+            List<Store> foundByType = (List<Store>) storeService.getStoresByType(Store.Type.AUTO_PARTS);
+            foundByType.forEach(System.out::println);
 
         //User
 
@@ -68,9 +72,6 @@ public class EcommerceApp {
         System.out.println("---Consulta usuario por Email--");
         Set<User> search = userService.getByEmail("ygomez@example.com");
         search.forEach(System.out::println);
-
-
-
-
+        
     }
 }
