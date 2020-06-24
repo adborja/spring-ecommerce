@@ -8,7 +8,7 @@ public class User implements Entity<String> {
     private String lastName;
     private String email;
 
-    @Overide
+    @Override
     public String getId() {
         return id;
     }

@@ -1,7 +1,9 @@
 package co.edu.cedesistemas.ecommerce;
 
 import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
+import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -20,7 +20,7 @@ public class UserService{
     }
 
     public User getByID(final String id){
-        return repository.findByID(id);
+        return repository.findById(id);
     }
 
     public void delete(final String id){
@@ -29,5 +29,9 @@ public class UserService{
 
     public Set<User> getByEmail(final String email){
         return repository.findByEmail(email);
+    }
+
+    public Iterable<User> getAllUsers() {
+        return repository.findAll();
     }
 }

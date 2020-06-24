@@ -1,19 +1,25 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.model.User;
 
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class UserMapRepository extends AbstractMapRepository<Store, String> {
-    public UserMapRepository(Map<String, Store> repository) {
+public class UserMapRepository extends AbstractMapRepository<User, String> {
+    public UserMapRepository(Map<String, User> repository) {
         super(repository);
     }
 
-    public Set<Store> findByName(final String name) {
+    public Set<User> findByName(final String name) {
         return repository.values().stream()
                 .filter(s -> s.getName().contains(name))
+                .collect(Collectors.toSet());
+    }
+
+    public Set<User> findByEmail(final String email) {
+        return repository.values().stream()
+                .filter(s -> s.getEmail().contains(email))
                 .collect(Collectors.toSet());
     }
 }
