@@ -44,4 +44,11 @@ public class StoreMapRepository implements StoreRepository {
                 .filter(s -> s.getName().contains(name))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Store> findByType(Store.Type type) {
+        return repository.values().stream()
+                .filter(s -> s.getType().equals(type))
+                .collect(Collectors.toList());
+    }
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface StoreRepository extends Repository<Store, String> {
     List<Store> findByName(String name);
+    List<Store> findByType(Store.Type type);
 }

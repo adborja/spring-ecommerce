@@ -34,5 +34,9 @@ public class EcommerceApp {
         // Finding stores by name ...
         List<Store> found = storeService.getByName("the");
         found.forEach(System.out::println);
+
+        // Finding stores by type ...
+        List<Store> foundByType = (List<Store>) storeService.getStoresByType(Store.Type.AUTO_PARTS);
+        foundByType.forEach(System.out::println);
     }
 }
