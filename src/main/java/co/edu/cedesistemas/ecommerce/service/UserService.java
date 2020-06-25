@@ -3,11 +3,10 @@ package co.edu.cedesistemas.ecommerce.service;
 import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
-public class UserService{
+public class UserService {
     private final UserMapRepository repository;
 
     public UserService(final UserMapRepository repository){

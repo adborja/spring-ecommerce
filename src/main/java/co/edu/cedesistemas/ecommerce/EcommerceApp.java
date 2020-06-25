@@ -18,6 +18,8 @@ public class EcommerceApp {
         Store store3 = context.getBean("store3", Store.class);
 
         StoreService storeService = context.getBean("storeService", StoreService.class);
+        //UserService userService = context.getBean("userService", UserService.class);
+        UserService userService = context.getBean("userService", UserService.class);
 
         // Storing stores ..
         store1 = storeService.createStore(store1);
@@ -43,8 +45,6 @@ public class EcommerceApp {
         User user1 = context.getBean("user1", User.class);
         User user2 = context.getBean("user2", User.class);
         User user3 = context.getBean("user3", User.class);
-
-        UserService userService = context.getBean("userService", UserService.class);
 
         //Created Users
         user1 = userService.createUser(user1);
