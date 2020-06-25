@@ -18,8 +18,6 @@ public class EcommerceApp {
         Store store3 = context.getBean("store3", Store.class);
 
         StoreService storeService = context.getBean("storeService", StoreService.class);
-        //UserService userService = context.getBean("userService", UserService.class);
-        UserService userService = context.getBean("userService", UserService.class);
 
         // Storing stores ..
         store1 = storeService.createStore(store1);
@@ -40,7 +38,11 @@ public class EcommerceApp {
         Set<Store> found = storeService.getByName("the");
         found.forEach(System.out::println);
 
+        System.out.println("");
+        System.out.println("Create Users:");
+
         //Punto f del taller 6.
+        UserService userService = context.getBean("userService", UserService.class);
 
         User user1 = context.getBean("user1", User.class);
         User user2 = context.getBean("user2", User.class);
@@ -48,20 +50,26 @@ public class EcommerceApp {
 
         //Created Users
         user1 = userService.createUser(user1);
-        System.out.println("user created: " + user1);
+        System.out.println("user created: " + user1 + " " + user1.getName());
 
         user2 = userService.createUser(user2);
-        System.out.println("user created: " + user2);
+        System.out.println("user created: " + user2 + " " + user2.getName());
 
         user3 = userService.createUser(user3);
-        System.out.println("user created: " + user3);
+        System.out.println("user created: " + user3 + " " + user3.getName());
+
+        System.out.println("");
 
         //Getting all users
+        System.out.println("Getting all Users:");
         Iterable<User> allUsers = userService.getAllUsers();
         allUsers.forEach(System.out::println);
 
+        System.out.println("");
+
         //Finding user by email
         //Finding user by email
+        System.out.println("Finding user by email:");
         Set<User> foundUser = userService.getByEmail("juan.perez@pruebas.com");
         foundUser.forEach(System.out::println);
     }
