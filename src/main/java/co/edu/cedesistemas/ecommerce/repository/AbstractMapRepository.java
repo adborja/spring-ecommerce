@@ -1,8 +1,10 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Entity;
+import co.edu.cedesistemas.ecommerce.model.User;
 
 import java.util.Map;
+import java.util.Set;
 
 public abstract class AbstractMapRepository<T extends Entity<ID>, ID> implements MapRepository<T, ID> {
     protected final Map<ID, T> repository;
@@ -31,4 +33,6 @@ public abstract class AbstractMapRepository<T extends Entity<ID>, ID> implements
     public void remove(ID id) {
         repository.remove(id);
     }
+
+
 }
