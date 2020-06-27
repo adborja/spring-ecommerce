@@ -2,17 +2,7 @@ package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
 
-import java.util.Map;
-
-public class OrderItemMapRepository implements OrderItemRepository {
-
-    protected final Map<String,OrderItem> repository;
-
-    public OrderItemMapRepository(Map<String, OrderItem> repository){
-        this.repository= repository;
-    }
-
-
+public class OrderItemJdbcRepository implements OrderItemRepository{
     @Override
     public <S extends OrderItem> S save(S entity) {
         return null;

@@ -7,7 +7,7 @@ import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class EcommerceApp {
@@ -72,6 +72,6 @@ public class EcommerceApp {
         System.out.println("---Consulta usuario por Email--");
         Set<User> search = userService.getByEmail("ygomez@example.com");
         search.forEach(System.out::println);
-        
+
     }
 }
