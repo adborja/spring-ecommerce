@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 public class JDBCTest {
     private final static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/ecommerce";
+    private final static String DATABASE_URL = "jdbc:mysql://192.168.0.33:3306/ecommerce";
     private final static String DB_USER = "root";
     private final static String DB_PASSWORD = "root";
     private final static String CHECK_QUERY = "SELECT version()";

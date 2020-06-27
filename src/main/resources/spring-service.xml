@@ -8,10 +8,8 @@
         <constructor-arg name="repository" ref="store-jdbc-repository" />
     </bean>
 
-    <bean id="userRepository" name="userRepository" class="co.edu.cedesistemas.ecommerce.repository.UserMapRepository">
-        <constructor-arg name="repository" ref="storeMap" />
-    </bean>
     <bean id="userService" class="co.edu.cedesistemas.ecommerce.service.UserService" >
-        <constructor-arg name="repository" ref="userRepository" />
+        <constructor-arg name="repository" ref="user-jdbc-repository" />
     </bean>
+
 </beans>

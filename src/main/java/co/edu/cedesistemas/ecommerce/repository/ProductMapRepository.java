@@ -1,34 +1,34 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.User;
+import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.repository.ProductRepository;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+public class ProductMapRepository implements ProductRepository {
+    protected final Map<String, Product> repository;
 
-public class UserMapRepository implements UserRepository {
-    
-    protected final Map<String, User> repository;
-
-    public UserMapRepository(Map<String, User> repository) {
+    public ProductMapRepository(Map<String, Product> repository) {
         this.repository = repository;
     }
+
     @Override
-    public <S extends User> S save(S entity) {
+    public <S extends Product> S save(S entity) {
         repository.put(entity.getId(), entity);
         System.out.println("Saving to map");
         return entity;
     }
 
     @Override
-    public User findById(String id) {
+    public Product findById(String id) {
         System.out.println("Finding from Map");
         return repository.get(id);
     }
 
     @Override
-    public Iterable<User> findAll() {
+    public Iterable<Product> findAll() {
         System.out.println("Finding from Map");
         return repository.values();
     }
@@ -39,18 +39,10 @@ public class UserMapRepository implements UserRepository {
         repository.remove(id);
     }
 
-    @Override
-    public List<User> findByName(final String name) {
+    public List<Product> findByName(final String name) {
         System.out.println("Finding from Map");
         return repository.values().stream()
                 .filter(s -> s.getName().contains(name))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<User> findByEmail(final String email) {
-        return repository.values().stream()
-                .filter(s -> s.getEmail().contains(email))
                 .collect(Collectors.toList());
     }
 
