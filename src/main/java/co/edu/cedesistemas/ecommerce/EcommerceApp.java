@@ -7,6 +7,7 @@ import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
 import java.util.Set;
 
 public class EcommerceApp {
@@ -35,7 +36,7 @@ public class EcommerceApp {
         allStores.forEach(System.out::println);
 
         // Finding stores by name ...
-        Set<Store> found = storeService.getByName("the");
+        List<Store> found = storeService.getByName("the");
         found.forEach(System.out::println);
 
         //Users

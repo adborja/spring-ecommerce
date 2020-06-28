@@ -1,13 +1,13 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Order;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import java.util.Map;
+public class OrderJdbcRepository implements OrderRepository {
+    private final NamedParameterJdbcTemplate jdbcTemplate;
 
-public class OrderMapRepository implements OrderRepository {
-    protected final Map<String,Order> repository;
-    public OrderMapRepository(Map<String, Order> repository) {
-        this.repository = repository;
+    public OrderJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
