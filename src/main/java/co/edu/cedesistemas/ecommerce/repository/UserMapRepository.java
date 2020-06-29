@@ -22,21 +22,26 @@ public class UserMapRepository implements UserRepository {
 
     @Override
     public <S extends User> S save(S entity) {
-        return null;
+        repository.put(entity.getId(), entity);
+        System.out.println("Saving to map");
+        return entity;
     }
 
     @Override
-    public User findById(String s) {
-        return null;
+    public User findById(String id) {
+        System.out.println("Finding from Map");
+        return repository.get(id);
     }
 
     @Override
-    public void remove(String s) {
-
+    public void remove(String id) {
+        System.out.println("Removing in Map");
+        repository.remove(id);
     }
 
     @Override
     public Iterable<User> findAll() {
-        return null;
+        System.out.println("Finding from Map");
+        return repository.values();
     }
 }
