@@ -5,5 +5,5 @@ import co.edu.cedesistemas.ecommerce.model.Order;
 import java.util.List;
 
 public interface OrderRepository extends Repository<Order,String> {
-    List<Order> findByName(String name);
+    List<Order> findByStore(String name);
 }

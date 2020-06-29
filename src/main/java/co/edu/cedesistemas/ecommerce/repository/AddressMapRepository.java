@@ -2,18 +2,41 @@ package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Address;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
-public class AddressMapRepository extends AbstractMapRepository<Address, String> {
+public class AddressMapRepository implements AddressRepository {
+    protected final Map<String, Address> repository;
+
     public AddressMapRepository(Map<String, Address> repository) {
-        super(repository);
+        this.repository = repository;
     }
 
-    public Set<Address> findByName(final String name) {
+    public List<Address> findByName(final String name) {
+        System.out.println("Finding from Map");
         return repository.values().stream()
                 .filter(s -> s.getName().contains(name))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public <S extends Address> S save(S entity) {
+        return null;
+    }
+
+    @Override
+    public Address findById(String s) {
+        return null;
+    }
+
+    @Override
+    public void remove(String s) {
+
+    }
+
+    @Override
+    public Iterable<Address> findAll() {
+        return null;
     }
 }

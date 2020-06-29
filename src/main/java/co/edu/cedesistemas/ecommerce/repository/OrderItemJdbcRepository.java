@@ -13,7 +13,7 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
     }
 
     @Override
-    public List<OrderItem> findByName(String name) {
+    public List<OrderItem> findByOrderId(String orderId) {
         return null;
     }
 

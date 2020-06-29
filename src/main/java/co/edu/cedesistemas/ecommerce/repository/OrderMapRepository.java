@@ -1,19 +1,41 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.model.Order;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
-public class OrderMapRepository extends AbstractMapRepository<Store, String> {
-    public OrderMapRepository(Map<String, Store> repository) {
-        super(repository);
+public class OrderMapRepository implements OrderRepository {
+    protected final Map<String, Order> repository;
+
+    public OrderMapRepository(Map<String, Order> repository) {
+        this.repository = repository;
     }
 
-    public Set<Store> findByName(final String name) {
+    public List<Order> findByStore(final String name) {
         return repository.values().stream()
-                .filter(s -> s.getName().contains(name))
-                .collect(Collectors.toSet());
+                .filter(s -> s.getStore().equals(name))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public <S extends Order> S save(S entity) {
+        return null;
+    }
+
+    @Override
+    public Order findById(String s) {
+        return null;
+    }
+
+    @Override
+    public void remove(String s) {
+
+    }
+
+    @Override
+    public Iterable<Order> findAll() {
+        return null;
     }
 }
