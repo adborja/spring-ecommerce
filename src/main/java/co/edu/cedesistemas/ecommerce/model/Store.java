@@ -92,6 +92,7 @@ public class Store implements Entity<String> {
         return Objects.hash(id);
     }
 
+    //Para imprimir un objeto
     @Override
     public String toString() {
         return "Store{" +

@@ -11,9 +11,11 @@ public class UserService {
     }
 
     public User createUser (User user){
-        user.getId();
-        user.getEmail();
-        return (User) repository.save(user);
+        user.setId(toString());
+        user.setName();
+        user.setLastName();
+        user.setEmail();
+        return repository.save(user);
     }
 
     public User getById(final String id){
