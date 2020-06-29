@@ -1,9 +1,9 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.model.OrderItem;
 
 import java.util.List;
 
-public interface OrderItemRepository extends Repository<Store, String> {
-    List<Store> findByName(String name);
+public interface OrderItemRepository extends Repository<OrderItem, String> {
+    List<OrderItem> findByName(String name);
 }
