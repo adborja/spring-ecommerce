@@ -8,5 +8,5 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public interface UserRepository extends Repository<User, String> {
-    Set<User> findByEmail(String name);
+    List<User> findByEmail(String name);
 }

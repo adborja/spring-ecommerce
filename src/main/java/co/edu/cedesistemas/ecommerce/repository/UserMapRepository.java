@@ -3,6 +3,7 @@ package co.edu.cedesistemas.ecommerce.repository;
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,8 +14,8 @@ public class UserMapRepository implements UserRepository {
         this.repository = repository;
     }
 
-    public Set<User> findByEmail(final String email){
-        return repository.values().stream().filter(s -> s.getEmail().contains(email))
+    public List<User> findByEmail(final String email){
+        return (List<User>) repository.values().stream().filter(s -> s.getEmail().contains(email))
                 .collect(Collectors.toSet());
     }
 

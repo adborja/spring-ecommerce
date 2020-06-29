@@ -4,6 +4,7 @@ import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
 import co.edu.cedesistemas.ecommerce.repository.UserRepository;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -27,7 +28,7 @@ public class UserService {
         repository.remove(id);
     }
 
-    public Set<User> getByEmail(final String email){
+    public List<User> getByEmail(final String email){
         return repository.findByEmail(email);
     }
 

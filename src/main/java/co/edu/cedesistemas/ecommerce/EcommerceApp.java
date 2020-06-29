@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class EcommerceApp {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml",
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml","spring-sample-user.xml");
         Store store1 = context.getBean("store1", Store.class);
         Store store2 = context.getBean("store2", Store.class);
@@ -61,8 +61,16 @@ public class EcommerceApp {
 
         //buscar por email
         System.out.println("\nBuscar por email =\n");
-        Set<User> userByEmail = userService.getByEmail("@prueba.com");
+        List<User> userByEmail = userService.getByEmail("@prueba.com");
         userByEmail.forEach(System.out::println);
         System.out.println("\n");
+
+        //eliminar
+        System.out.println("\nEliminar por ID =\n");
+        //userService.delete("049e7214-0ea6-48a2-a05b-f30f94b7d9f9");
+        //userService.delete("3e0629d4-7bdc-4cbf-9a88-1a668b05493d");
+        //userService.delete("403f6b32-ed2b-4037-8ca4-eca91219aff8");
+        //userService.delete("41b666ca-ca00-4dd0-b26d-cafc8de52e9b");
+        //userService.delete("49f2d849-65c6-41fa-a9af-2acf740c8257");
     }
 }
