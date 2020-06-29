@@ -18,6 +18,11 @@ public class UserJdbcRepository implements UserRepository {
     }
 
     @Override
+    public List<User> findByEmail(String email) {
+        return null;
+    }
+
+    @Override
     public <S extends User> S save(S entity) {
         return null;
     }
