@@ -2,7 +2,7 @@ package co.edu.cedesistemas.ecommerce.model;
 
 import java.util.Objects;
 
-public class OrderItem <ID> implements Entity<ID> {
+public class OrderItem implements Entity<String> {
     private String id;
     private String orderId;
     private Product product;
@@ -10,8 +10,8 @@ public class OrderItem <ID> implements Entity<ID> {
     private Integer quantity;
 
     @Override
-    public ID getId() {
-        return (ID) id;
+    public String getId(){
+        return id;
     }
 
     public void setId(String id) {

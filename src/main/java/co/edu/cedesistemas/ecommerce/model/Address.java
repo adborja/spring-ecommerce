@@ -2,7 +2,7 @@ package co.edu.cedesistemas.ecommerce.model;
 
 import java.util.Objects;
 
-public class Address<ID> implements Entity<ID> {
+public class Address implements Entity<String> {
     private String id;
     private String name;
     private String description;
@@ -17,8 +17,8 @@ public class Address<ID> implements Entity<ID> {
 
 
     @Override
-    public ID getId() {
-        return (ID) id;
+    public String getId() {
+        return id;
     }
 
     public void setId(String id) {

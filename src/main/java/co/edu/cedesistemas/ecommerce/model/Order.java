@@ -3,15 +3,15 @@ package co.edu.cedesistemas.ecommerce.model;
 import java.net.IDN;
 import java.util.Objects;
 
-public class Order<ID> implements Entity<ID> {
+public class Order implements Entity<String> {
     private String id;
     private User user;
     private Store store;
     private Address shippingAddress;
 
     @Override
-    public ID getId() {
-        return (ID) id;
+    public String getId() {
+        return id;
     }
 
     public void setId(String id) {
