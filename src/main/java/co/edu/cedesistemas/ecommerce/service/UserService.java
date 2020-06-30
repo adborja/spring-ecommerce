@@ -34,7 +34,7 @@ public class UserService {
         return repository.findByEmail(email);
     }
 
-    public Iterable<User> getAllUsers() {
+    public Iterable<User> getAllUser() {
         return repository.findAll();
     }
 }
