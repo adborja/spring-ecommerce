@@ -3,6 +3,10 @@ package co.edu.cedesistemas.ecommerce.repository;
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
 import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.service.ProductService;
+import co.edu.cedesistemas.ecommerce.service.StoreService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -37,10 +41,12 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
         @Override
         public OrderItem mapRow(ResultSet rs, int rowNum) throws SQLException {
             OrderItem orderItem = new OrderItem();
-            ProductJdbcRepository productJdbcRepository = null;
+            ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml");
+            ProductService productService = context.getBean("productService", ProductService.class);
+
             orderItem.setId(rs.getString("id"));
             orderItem.setOrderId(rs.getString("orderId"));
-            orderItem.setProduct(productJdbcRepository.findById(rs.getString("productId")));
+            orderItem.setProduct(productService.getById(rs.getString("productId")));
             orderItem.setFinalPrice(rs.getFloat("finalPrice"));
             orderItem.setQuantity(rs.getInt("quantity"));
             return orderItem;

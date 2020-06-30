@@ -2,6 +2,7 @@ package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.model.Store;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -17,19 +18,30 @@ public class ProductJdbcRepository implements ProductRepository {
 
     @Override
     public List<Product> findByName(String name) {
-        return null;
+        final String query = "SELECT * FROM product WHERE name LIKE :name";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("name", name);
+        System.out.println("Finding from database");
+        return jdbcTemplate.queryForList(query, namedParameters, Product.class);
     }
 
     @Override
     public <S extends Product> S save(S entity) {
-        return null;
+        final String insertQ = "INSERT INTO product (id, name, description)" +
+                " VALUES (:id, :name, :description)";
+        SqlParameterSource namedParameters = new MapSqlParameterSource()
+                .addValue("id", entity.getId())
+                .addValue("name", entity.getName())
+                .addValue("description", entity.getDescription());
+        jdbcTemplate.update(insertQ, namedParameters);
+        System.out.println("Updated Product in database");
+        return entity;
     }
 
     @Override
     public Product findById(String id) {
             final String query = "SELECT * FROM product WHERE id = :id";
             SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
-            System.out.println("Finding Product from database");
+            System.out.println("Finding By Id from database: " + id);
             return jdbcTemplate.queryForObject(query, namedParameters, Product.class);
     }
 
@@ -40,6 +52,8 @@ public class ProductJdbcRepository implements ProductRepository {
 
     @Override
     public Iterable<Product> findAll() {
-        return null;
+        final String query = "SELECT * FROM product";
+        System.out.println("Finding Products from database");
+        return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(Product.class));
     }
 }
