@@ -1,7 +1,10 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.Store;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import java.util.List;
 
@@ -23,8 +26,11 @@ public class ProductJdbcRepository implements ProductRepository {
     }
 
     @Override
-    public Product findById(String s) {
-        return null;
+    public Product findById(String id) {
+            final String query = "SELECT * FROM product WHERE id = :id";
+            SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+            System.out.println("Finding Product from database");
+            return jdbcTemplate.queryForObject(query, namedParameters, Product.class);
     }
 
     @Override
