@@ -25,14 +25,14 @@ public class EcommerceApp {
         OrderItemService orderItemService = context.getBean("orderItemService", OrderItemService.class);
 
         // Storing stores ..
-        //store1 = storeService.createStore(store1);
-        //System.out.println("store created: " + store1);
+        store1 = storeService.createStore(store1);
+        System.out.println("store created: " + store1);
 
-        //store2 = storeService.createStore(store2);
-        //System.out.println("store created: " + store2);
+        store2 = storeService.createStore(store2);
+        System.out.println("store created: " + store2);
 
-        //store3 = storeService.createStore(store3);
-        //System.out.println("store created: " + store3);
+        store3 = storeService.createStore(store3);
+        System.out.println("store created: " + store3);
 
         // Getting all stores ...
         Iterable<Store> allStores = storeService.getAllStores();
@@ -51,14 +51,14 @@ public class EcommerceApp {
         Product product2 = context.getBean("product2", Product.class);
         Product product3 = context.getBean("product3", Product.class);
 
-        //product1 = productService.createProduct(product1);
-        //System.out.println("store product: " + product1);
+        product1 = productService.createProduct(product1);
+        System.out.println("store product: " + product1);
 
-        //product2 = productService.createProduct(product2);
-        //System.out.println("store product: " + product2);
+        product2 = productService.createProduct(product2);
+        System.out.println("store product: " + product2);
 
-        //product3 = productService.createProduct(product3);
-        //System.out.println("store product: " + product3);
+        product3 = productService.createProduct(product3);
+        System.out.println("store product: " + product3);
 
         // Getting all products ...
         Iterable<Product> allProducts = productService.getAllProducts();
