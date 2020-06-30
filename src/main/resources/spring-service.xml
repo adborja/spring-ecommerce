@@ -14,6 +14,7 @@
         <constructor-arg name="repository" ref="userMap" />
     </bean>
     <bean id="userService" class="co.edu.cedesistemas.ecommerce.service.UserService" >
-        <constructor-arg name="repository" ref="userRepository" />
+        <!--<constructor-arg name="repository" ref="userRepository" />-->
+        <constructor-arg name="repository" ref="user-jdbc-repository" />
     </bean>
 </beans>
