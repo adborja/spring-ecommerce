@@ -56,7 +56,7 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
 
         @Override
         public OrderItem mapRow(ResultSet rs, int rowNum) throws SQLException {
-
+            
             OrderItem orderItem = new OrderItem();
             orderItem.setId(rs.getString("id"));
             orderItem.setOrderId(rs.getString("orderId"));
