@@ -6,14 +6,32 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class OrderItemMapRepository extends AbstractMapRepository<OrderItem, String> {
+public class OrderItemMapRepository implements OrderItemRepository {
+
+    protected final Map<String, OrderItem> repository;
+
     public OrderItemMapRepository(Map<String, OrderItem> repository) {
-        super(repository);
+        this.repository = repository;
     }
 
-    public Set<OrderItem> findByOrder(final String orderId) {
-        return repository.values().stream()
-                .filter(oi -> oi.getOrderId())
-                .collect(Collectors.toSet());
+    @Override
+    public <S extends OrderItem> S save(S entity) {
+        return null;
     }
+
+    @Override
+    public OrderItem findById(String s) {
+        return null;
+    }
+
+    @Override
+    public void remove(String s) {
+
+    }
+
+    @Override
+    public Iterable<OrderItem> findAll() {
+        return null;
+    }
+
 }
