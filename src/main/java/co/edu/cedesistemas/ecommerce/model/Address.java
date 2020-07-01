@@ -15,7 +15,6 @@ public class Address implements Entity<String> {
     private String street3;
     private String zip;
 
-
     @Override
     public String getId() {
         return id;
