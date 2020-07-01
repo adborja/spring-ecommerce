@@ -1,5 +1,6 @@
 #!/bin/bash
-docker run --name mysql.cedesistemas.local \
+docker run --restart=unless-stopped \
+        --name mysql.cedesistemas.local \
         -v /var/data/mysql:/var/lib/mysql \
         -p 3306:3306 \
         -e MYSQL_ROOT_PASSWORD=root \
