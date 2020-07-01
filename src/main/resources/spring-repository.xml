@@ -28,7 +28,7 @@
     <bean id="order-jdbc-repository" name="order-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.OrderJdbcRepository">
         <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
-    <bean id="orderItem-jdbc-repository" name="orderItem-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.OrderItemJdbcRepository">
+    <bean id="orderItem-jdbc-repository" name="orderItem-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.OrderItemJdbcRepository ">
         <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
 </beans>
