@@ -1,14 +1,21 @@
 package co.edu.cedesistemas.ecommerce;
 
+import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
 public class EcommerceApp {
     public static void main(String[] args) {
+        loadFromAnnotations();
+        //loadFromXML();
+    }
+
+    private static void loadFromXML() {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml");
         Store store1 = context.getBean("store1", Store.class);
@@ -38,5 +45,12 @@ public class EcommerceApp {
         // Finding stores by type ...
         List<Store> foundByType = (List<Store>) storeService.getStoresByType(Store.Type.AUTO_PARTS);
         foundByType.forEach(System.out::println);
+    }
+
+    private static void loadFromAnnotations() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(CommerceConfig.class);
+        ctx.scan("co.edu.cedesistemas.ecommerce");
+        StoreService storeService = ctx.getBean(StoreService.class);
+        System.out.println(storeService);
     }
 }
