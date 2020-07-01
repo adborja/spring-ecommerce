@@ -1,10 +1,22 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class OrderItemJdbcRepository implements OrderItemRepository {
+    private final NamedParameterJdbcTemplate jdbcTemplate;
+
+    public OrderItemJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public <S extends OrderItem> S save(S entity) {
@@ -28,6 +40,25 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
 
     @Override
     public List<OrderItem> findAllByOrder(String orderId) {
-        return null;
+        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate.getJdbcTemplate())
+                .withProcedureName("get_order_items")
+                .returningResultSet("order_item",new OrderItemRowMapper(jdbcTemplate));
+
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
+                .addValue("oId",orderId);
+
+        return (List<OrderItem>) jdbcCall.execute(sqlParameterSource).get("order_item");
+
+    }
+
+    private static class OrderItemRowMapper implements RowMapper<OrderItem> {
+
+        public OrderItemRowMapper(NamedParameterJdbcTemplate jdbcTemplate) {
+        }
+
+        @Override
+        public OrderItem mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return null;
+        }
     }
 }
