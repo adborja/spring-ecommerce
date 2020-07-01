@@ -1,15 +1,15 @@
 package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.User;
-import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
+import co.edu.cedesistemas.ecommerce.repository.UserRepository;
 
 import java.util.Set;
 import java.util.UUID;
 
 public class UserService {
-    private final UserMapRepository repository;
+    private final UserRepository repository;
 
-    public UserService(final UserMapRepository repository) {
+    public UserService(final UserRepository repository) {
         this.repository = repository;
     }
 

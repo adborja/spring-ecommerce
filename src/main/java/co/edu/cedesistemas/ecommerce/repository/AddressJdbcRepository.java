@@ -1,9 +1,8 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-
 import co.edu.cedesistemas.ecommerce.model.Address;
 
-public class AddressMapRepository implements AddressRepository {
+public class AddressJdbcRepository implements AddressRepository {
 
     @Override
     public <S extends Address> S save(S entity) {

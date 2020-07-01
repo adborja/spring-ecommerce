@@ -1,9 +1,8 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-
 import co.edu.cedesistemas.ecommerce.model.Product;
 
-public class ProductMapRepository implements ProductRepository {
+public class ProductJdbcRepository implements ProductRepository {
 
     @Override
     public <S extends Product> S save(S entity) {
