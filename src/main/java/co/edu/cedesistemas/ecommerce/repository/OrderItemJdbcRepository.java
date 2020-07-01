@@ -1,6 +1,7 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
+import co.edu.cedesistemas.ecommerce.model.Product;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -54,9 +55,11 @@ public class OrderItemJdbcRepository implements OrderItemRepository{
             OrderItem orderItem = new OrderItem();
             orderItem.setId(rs.getString("id"));
             orderItem.setOrderId(rs.getString("orderId"));
-            //orderItem.setProduct(rs.getString("productId"));
             orderItem.setFinalPrice(rs.getFloat("finalPrice"));
             orderItem.setQuantity(rs.getInt("quantity"));
+            Product product = new Product();
+            product.setId(rs.getString("productId"));
+            orderItem.setProduct(product);
             return orderItem;
 
         }
