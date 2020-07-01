@@ -2,37 +2,38 @@ package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
+import co.edu.cedesistemas.ecommerce.repository.UserRepository;
 
-import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-public class StoreService {
-    private final UserMapRepository repository;
+public class UserService {
+    private final UserRepository repository;
 
-    public UserService(final UserMapRepository repository) {
+    public UserService(final UserRepository repository){
         this.repository = repository;
     }
 
-    public Store createUser(User user) {
+    public User createUser(User user){
         user.setId(UUID.randomUUID().toString());
-        user.setCreatedAt(LocalDateTime.now());
         return repository.save(user);
     }
 
-    public User getById(final String id) {
+    public User getById(final String id){
         return repository.findById(id);
     }
 
-    public void delete(final String id) {
+    public void delete(final String id){
         repository.remove(id);
     }
 
-    public Set<User> getByName(final String name) {
+    public List<User> getByEmail(final String name){
         return repository.findByName(name);
     }
 
-    public Iterable<User> getAllUsers() {
+    public Iterable<User> getAllUser(){
         return repository.findAll();
     }
+
 }
