@@ -1,10 +1,12 @@
 package co.edu.cedesistemas.ecommerce;
 
+import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -12,10 +14,20 @@ import java.util.Set;
 
 public class EcommerceApp {
     public static void main(String[] args) {
+<<<<<<< HEAD
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml",
                 "spring-sample-stores.xml", "spring-sample-users.xml");
 
 
+=======
+        loadFromAnnotations();
+        //loadFromXML();
+    }
+
+    private static void loadFromXML() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
+                "spring-sample-stores.xml");
+>>>>>>> base
         Store store1 = context.getBean("store1", Store.class);
         Store store2 = context.getBean("store2", Store.class);
         Store store3 = context.getBean("store3", Store.class);
@@ -73,5 +85,12 @@ public class EcommerceApp {
         Set<User> search = userService.getByEmail("ygomez@example.com");
         search.forEach(System.out::println);
 
+    }
+
+    private static void loadFromAnnotations() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(CommerceConfig.class);
+        ctx.scan("co.edu.cedesistemas.ecommerce");
+        StoreService storeService = ctx.getBean(StoreService.class);
+        System.out.println(storeService);
     }
 }

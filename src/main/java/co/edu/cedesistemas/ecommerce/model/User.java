@@ -2,7 +2,8 @@ package co.edu.cedesistemas.ecommerce.model;
 
 import java.util.Objects;
 
-public class User implements Entity<String>{
+public class User implements Entity<String> {
+
     private String id;
     private String name;
     private String lastName;
