@@ -45,18 +45,20 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
     public List<OrderItem> findAllByOrder(String orderId) {
         SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate.getJdbcTemplate())
                 .withProcedureName("get_order_items")
-                .returningResultSet("order_item",new OrderItemRowMapper(jdbcTemplate));
+          //      .returningResultSet("order_item",new OrderItemRowMapper(jdbcTemplate));
+                .returningResultSet("order_item",new OrderItemRowMapper());
+
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
                 .addValue("oId",orderId);
         return (List<OrderItem>) simpleJdbcCall.execute(sqlParameterSource).get("order_item");
     }
 
     private static class OrderItemRowMapper implements RowMapper<OrderItem> {
-        private final NamedParameterJdbcTemplate jdbcTemplate;
+        /*private final NamedParameterJdbcTemplate jdbcTemplate;
 
         public OrderItemRowMapper(NamedParameterJdbcTemplate jdbcTemplate) {
             this.jdbcTemplate = jdbcTemplate;
-        }
+        }*/
 
         @Override
         public OrderItem mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -66,8 +68,10 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
             orderItem.setOrderId(rs.getString("orderId"));
             orderItem.setFinalPrice(rs.getFloat("finalPrice"));
             orderItem.setQuantity(rs.getInt("quantity"));
-            ProductJdbcRepository productJdbcRepository = new ProductJdbcRepository(this.jdbcTemplate);
-            orderItem.setProduct(productJdbcRepository.findById(rs.getString("productId")));
+            //ProductJdbcRepository productJdbcRepository = new ProductJdbcRepository(this.jdbcTemplate);
+            Product product = new Product();
+            product.setId(rs.getString("productId"));
+            orderItem.setProduct(product);
 
             return orderItem;
         }
