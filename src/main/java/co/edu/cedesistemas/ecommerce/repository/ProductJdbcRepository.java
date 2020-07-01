@@ -8,10 +8,10 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import java.util.List;
 
-public class ProductjdbcRepository implements ProductRepository {
+public class ProductJdbcRepository implements ProductRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    public ProductjdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
+    public ProductJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

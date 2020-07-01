@@ -1,13 +1,11 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
-import co.edu.cedesistemas.ecommerce.model.Product;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +16,9 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
 
     public OrderItemJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+        ProductJdbcRepository productJdbcRepository = new ProductJdbcRepository(this.jdbcTemplate);
     }
+
 
     @Override
     public <S extends OrderItem> S save(final S entity) {
@@ -68,14 +68,14 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
 
 
     private class OrderItemRowMapper implements RowMapper<OrderItem> {
-        ProductjdbcRepository productjdbcRepository;
+        ProductJdbcRepository productJdbcRepository;
         @Override
         public OrderItem mapRow(ResultSet rs, int rowNum) throws SQLException {
             OrderItem orderItem = new OrderItem();
             orderItem.setId(rs.getString("id"));
             orderItem.setOrderId(rs.getString("orderId"));
 //            orderItem.setProduct((rs.getString("productId")));
-            orderItem.setProduct(productjdbcRepository.findById(rs.getString("productId")));
+            orderItem.setProduct(productJdbcRepository.findById(rs.getString("productId")));
             orderItem.setFinalPrice(rs.getFloat("finalPrice"));
             orderItem.setQuantity(rs.getInt("quantity"));
             return orderItem;
