@@ -1,21 +1,22 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-
 import co.edu.cedesistemas.ecommerce.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-
+@Repository
 public class UserMapRepository implements UserRepository {
     protected final Map<String, User> repository;
     public UserMapRepository(Map<String, User> repository) {
         this.repository = repository;
     }
 
-    public List<User> findByEmail(String email) {
-        System.out.println("Finding from email");
-        return (List<User>) repository.get(email);
+    public List<User> findByEmail(final String email){
+        return (List<User>) repository.values().stream().filter(s -> s.getEmail().contains(email))
+                .collect(Collectors.toSet());
     }
 
 

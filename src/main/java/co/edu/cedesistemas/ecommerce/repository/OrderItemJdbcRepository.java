@@ -3,17 +3,20 @@ package co.edu.cedesistemas.ecommerce.repository;
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
 import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.model.Store;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.List;
 
+@Repository
+@Primary
 public class OrderItemJdbcRepository implements OrderItemRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
@@ -45,18 +48,20 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
     public List<OrderItem> findAllByOrder(String orderId) {
         SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate.getJdbcTemplate())
                 .withProcedureName("get_order_items")
-                .returningResultSet("order_item",new OrderItemRowMapper(jdbcTemplate));
+          //      .returningResultSet("order_item",new OrderItemRowMapper(jdbcTemplate));
+                .returningResultSet("order_item",new OrderItemRowMapper());
+
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
                 .addValue("oId",orderId);
         return (List<OrderItem>) simpleJdbcCall.execute(sqlParameterSource).get("order_item");
     }
 
     private static class OrderItemRowMapper implements RowMapper<OrderItem> {
-        private final NamedParameterJdbcTemplate jdbcTemplate;
+        /*private final NamedParameterJdbcTemplate jdbcTemplate;
 
         public OrderItemRowMapper(NamedParameterJdbcTemplate jdbcTemplate) {
             this.jdbcTemplate = jdbcTemplate;
-        }
+        }*/
 
         @Override
         public OrderItem mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -66,8 +71,10 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
             orderItem.setOrderId(rs.getString("orderId"));
             orderItem.setFinalPrice(rs.getFloat("finalPrice"));
             orderItem.setQuantity(rs.getInt("quantity"));
-            ProductJdbcRepository productJdbcRepository = new ProductJdbcRepository(this.jdbcTemplate);
-            orderItem.setProduct(productJdbcRepository.findById(rs.getString("productId")));
+            //ProductJdbcRepository productJdbcRepository = new ProductJdbcRepository(this.jdbcTemplate);
+            Product product = new Product();
+            product.setId(rs.getString("productId"));
+            orderItem.setProduct(product);
 
             return orderItem;
         }
