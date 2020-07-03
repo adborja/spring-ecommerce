@@ -137,7 +137,7 @@ public class EcommerceApp {
 
         //Getting all order item
         System.out.println("Getting all order item");
-        List<OrderItem> item = orderItemService.findAllByOrder("1");
-        item.forEach(System.out::println);
+        //List<OrderItem> item = orderItemService.findAllByOrder("1");
+        //item.forEach(System.out::println);
     }
 }
