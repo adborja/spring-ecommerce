@@ -1,10 +1,10 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.Address;
 import co.edu.cedesistemas.ecommerce.model.Product;
-
+import org.springframework.stereotype.Repository;
 import java.util.Map;
 
+@Repository
 public class ProductMapRepository implements ProductRepository{
 
     protected final Map<String, Product> repository;
