@@ -104,6 +104,7 @@ public class EcommerceApp {
 
         UserService userService = context.getBean(UserService.class);
         ProductService productService = context.getBean(ProductService.class);
+        OrderItemService orderItemService = context.getBean(OrderItemService.class);
 
         //Create Products
         Product product1 = new Product();
@@ -134,5 +135,9 @@ public class EcommerceApp {
         Iterable<Product> allProducts = productService.getAllProducts();
         allProducts.forEach(System.out::println);
 
+        //Getting all order item
+        System.out.println("Getting all order item");
+        List<OrderItem> item = orderItemService.findAllByOrder("1");
+        item.forEach(System.out::println);
     }
 }
