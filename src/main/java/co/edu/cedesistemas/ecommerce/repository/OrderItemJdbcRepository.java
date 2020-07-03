@@ -6,6 +6,7 @@ import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -20,6 +21,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Repository
+@Primary
 public class OrderItemJdbcRepository implements OrderItemRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 

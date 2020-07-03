@@ -8,6 +8,7 @@ import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.service.OrderItemService;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
+import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -100,5 +101,38 @@ public class EcommerceApp {
         context.scan("co.edu.cedesistemas.ecommerce");
         StoreService storeService = context.getBean(StoreService.class);
         System.out.println(storeService);
+
+        UserService userService = context.getBean(UserService.class);
+        ProductService productService = context.getBean(ProductService.class);
+
+        //Create Products
+        Product product1 = new Product();
+        product1.setName("Iphone");
+        product1.setDescription("Iphone 11");
+        productService.createProduct(product1);
+        System.out.println("store product: " + product1);
+
+        Product product2 = new Product();
+        product2.setName("Portatil");
+        product2.setDescription("Portatil Lenovo");
+        productService.createProduct(product2);
+        System.out.println("store product: " + product2);
+
+        Product product3 = new Product();
+        product3.setName("Nevera");
+        product3.setDescription("Nevera Haceb");
+        productService.createProduct(product3);
+        System.out.println("store product: " + product3);
+
+        Product product4 = new Product();
+        product4.setName("Carro");
+        product4.setDescription("Automovil");
+        productService.createProduct(product4);
+        System.out.println("store product: " + product4);
+
+        // Getting all products ...
+        Iterable<Product> allProducts = productService.getAllProducts();
+        allProducts.forEach(System.out::println);
+
     }
 }
