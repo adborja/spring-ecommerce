@@ -15,7 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
-public class EcommerceApp {
+public class EcommerceAppTaller8 {
     public static void main(String[] args) {
         loadFromAnnotations();
         //loadFromXML();
