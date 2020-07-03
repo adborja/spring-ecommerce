@@ -1,5 +1,6 @@
 package co.edu.cedesistemas.ecommerce;
 
+import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
 import co.edu.cedesistemas.ecommerce.model.Order;
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
 import co.edu.cedesistemas.ecommerce.model.Product;
@@ -8,12 +9,18 @@ import co.edu.cedesistemas.ecommerce.service.OrderItemService;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
 public class EcommerceApp {
     public static void main(String[] args) {
+        loadFromAnnotations();
+        //loadFromXML();
+    }
+
+    private static void loadFromXML() {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml", "spring-sample-products.xml");
         Store store1 = context.getBean("store1", Store.class);
@@ -71,9 +78,9 @@ public class EcommerceApp {
         // Finding all information products by name ...
         //for (Product list: listProductsName) {
         //    Product product = productService.getById(list.getId());
-            //System.out.println("ID: " + product.getId());
-            //System.out.println("Name: " + product.getName());
-            //System.out.println("Description: " + product.getDescription());
+        //System.out.println("ID: " + product.getId());
+        //System.out.println("Name: " + product.getName());
+        //System.out.println("Description: " + product.getDescription());
         //}
 
         //Found Product By ID
@@ -86,6 +93,12 @@ public class EcommerceApp {
         System.out.println("Finding all By Order");
         List<OrderItem> listOrderItem = orderItemService.findAllByOrder("1");
         listOrderItem.forEach(System.out::println);
+    }
 
+    private static void loadFromAnnotations() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CommerceConfig.class);
+        context.scan("co.edu.cedesistemas.ecommerce");
+        StoreService storeService = context.getBean(StoreService.class);
+        System.out.println(storeService);
     }
 }
