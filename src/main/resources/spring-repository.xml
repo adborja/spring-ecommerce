@@ -7,8 +7,8 @@
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
         <constructor-arg ref="ecommerce-mysql-ds" />
     </bean>
-    <bean id="store-map-repository" name="store-map-repository" class="co.edu.cedesistemas.ecommerce.repository.StoreMapRepository">
-        <constructor-arg name="repository" ref="storeMap" />
+    <bean id="store-jdbc-repository" name="store-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.StoreJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
     <bean id="user-jdbc-repository" name="user-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.UserJdbcRepository">
         <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
