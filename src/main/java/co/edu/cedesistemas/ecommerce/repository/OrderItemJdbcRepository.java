@@ -1,11 +1,15 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
+import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.Store;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,10 +17,12 @@ import java.util.List;
 
 public class OrderItemJdbcRepository implements OrderItemRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
+    private ProductJdbcRepository productJdbcRepository;
 
-    public OrderItemJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
+    public OrderItemJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate,
+                                   ProductJdbcRepository productJdbcRepository) {
         this.jdbcTemplate = jdbcTemplate;
-        ProductJdbcRepository productJdbcRepository = new ProductJdbcRepository(this.jdbcTemplate);
+        this.productJdbcRepository = productJdbcRepository;
     }
 
 
@@ -58,23 +64,37 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
         return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(OrderItem.class));
     }
 
+//    @Override
+//    public List<OrderItem> findAllByOrder(final String orderId) {
+//        final String query = "SELECT * FROM order_item WHERE name LIKE :orderId";
+//        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("orderId", orderId);
+//        System.out.println("Finding from database");
+//        return jdbcTemplate.queryForList(query, namedParameters, OrderItem.class);
+//    }
+
     @Override
     public List<OrderItem> findAllByOrder(final String orderId) {
-        final String query = "SELECT * FROM order_item WHERE name LIKE :orderId";
-        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("orderId", orderId);
-        System.out.println("Finding from database");
-        return jdbcTemplate.queryForList(query, namedParameters, OrderItem.class);
+        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate.getJdbcTemplate())
+                .withProcedureName("get_order_items")
+                .returningResultSet("orderItems", new OrderItemJdbcRepository.OrderItemRowMapper());
+        SqlParameterSource in = new MapSqlParameterSource()
+                .addValue("oId", orderId);
+
+        return (List<OrderItem>) jdbcCall.execute(in).get("orderItems");
     }
 
 
     private class OrderItemRowMapper implements RowMapper<OrderItem> {
-        ProductJdbcRepository productJdbcRepository;
+
         @Override
         public OrderItem mapRow(ResultSet rs, int rowNum) throws SQLException {
+//            Product product = new Product();
+//            product.setId(rs.getString("productId"));
+
             OrderItem orderItem = new OrderItem();
             orderItem.setId(rs.getString("id"));
             orderItem.setOrderId(rs.getString("orderId"));
-//            orderItem.setProduct((rs.getString("productId")));
+//            orderItem.setProduct(product);
             orderItem.setProduct(productJdbcRepository.findById(rs.getString("productId")));
             orderItem.setFinalPrice(rs.getFloat("finalPrice"));
             orderItem.setQuantity(rs.getInt("quantity"));
@@ -82,12 +102,4 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
         }
     }
 
-
-//    private  Product findProduct(final String productId) {
-//        final String query = "SELECT * FROM product WHERE id = :productId";
-//        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("productId", productId);
-//        System.out.println("Finding from database");
-//        return jdbcTemplate.queryForObject(query, namedParameters, Product.class);
-//    }
-//
 }

@@ -1,14 +1,19 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Product;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
+@Primary
 public class ProductJdbcRepository implements ProductRepository {
+
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     public ProductJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {

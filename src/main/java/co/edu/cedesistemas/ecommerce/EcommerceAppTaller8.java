@@ -10,12 +10,10 @@ import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.objenesis.SpringObjenesis;
 
 import java.util.List;
-import java.util.Set;
 
-public class EcommerceApp {
+public class EcommerceAppTaller8 {
     public static void main(String[] args) {
 //        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml",
         loadFromAnnotations();
