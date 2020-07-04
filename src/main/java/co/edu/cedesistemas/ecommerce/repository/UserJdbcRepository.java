@@ -1,11 +1,13 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.User;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
 @Repository
+@Primary
 public class UserJdbcRepository implements UserRepository {
 
     @Override
