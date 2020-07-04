@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="spring-repository.xml" />
+    <bean id="storeService" class="co.edu.cedesistemas.ecommerce.service.StoreService" >
+        <!--constructor-arg name="repository" ref="store-map-repository" /-->
+        <constructor-arg name="repository" ref="store-jdbc-repository" />
+    </bean>
+    <bean id="userRepository" name="userRepository" class="co.edu.cedesistemas.ecommerce.repository.UserMapRepository">
+        <constructor-arg name="repository" ref="userMap" />
+    </bean>
+    <bean id="userService" class="co.edu.cedesistemas.ecommerce.service.UserService" >
+        <constructor-arg name="repository" ref="userRepository" />
+    </bean>
+</beans>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="spring-datasource.xml" />
+    <bean id="storeMap" class="java.util.HashMap" />
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="ecommerce-mysql-ds" />
+    </bean>
+    <bean id="store-map-repository" name="store-map-repository" class="co.edu.cedesistemas.ecommerce.repository.StoreMapRepository">
+        <constructor-arg name="repository" ref="storeMap" />
+    </bean>
+    <bean id="store-jdbc-repository" name="store-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.StoreJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    <bean id="address-jdbc-repository" name="address-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.AddressJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    <bean id="product-jdbc-repository" name="product-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.ProductJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    <bean id="user-jdbc-repository" name="user-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.UserJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    <bean id="order-jdbc-repository" name="order-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.OrderJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    <bean id="orderItem-jdbc-repository" name="orderItem-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.OrderItemJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+</beans>
