@@ -2,7 +2,6 @@ package co.edu.cedesistemas.ecommerce.service;
 
 
 import co.edu.cedesistemas.ecommerce.model.document.Product;
-import co.edu.cedesistemas.ecommerce.model.document.Store;
 import co.edu.cedesistemas.ecommerce.repository.mongo.ProductRepository;
 import org.springframework.stereotype.Service;
 
