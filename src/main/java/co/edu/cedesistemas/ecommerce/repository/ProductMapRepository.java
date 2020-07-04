@@ -2,7 +2,9 @@ package co.edu.cedesistemas.ecommerce.repository;
 
 
 import co.edu.cedesistemas.ecommerce.model.Product;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ProductMapRepository implements ProductRepository {
 
     @Override
