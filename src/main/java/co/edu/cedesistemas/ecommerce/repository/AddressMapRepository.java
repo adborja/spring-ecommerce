@@ -2,12 +2,14 @@ package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Address;
 import co.edu.cedesistemas.ecommerce.model.Address;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Repository
 public class AddressMapRepository implements AddressRepository {
     protected final Map<String, Address> repository;
 

@@ -3,12 +3,13 @@ package co.edu.cedesistemas.ecommerce.repository;
 import co.edu.cedesistemas.ecommerce.model.Order;
 import co.edu.cedesistemas.ecommerce.model.Order;
 import co.edu.cedesistemas.ecommerce.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-
+@Repository
 public class OrderMapRepository implements OrderRepository {
     protected final Map<String, Order> repository;
 
