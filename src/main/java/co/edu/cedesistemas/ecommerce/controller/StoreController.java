@@ -48,6 +48,10 @@ public class StoreController {
     @GetMapping("/stores")
     public ResponseEntity<?> getAllStores() {
         Iterable<Store> stores = storeService.getAllStores();
+
+        if (stores == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(stores, HttpStatus.OK);
     }
 }

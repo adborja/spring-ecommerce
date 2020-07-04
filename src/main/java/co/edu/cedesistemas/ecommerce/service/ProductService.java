@@ -36,7 +36,7 @@ public class ProductService {
     public List<Product> getByDescription(final String description) {
         return repository.findByDescriptionLike(description);
     }
-    public Iterable<Product> getAllStores() {
+    public Iterable<Product> getAllProducts() {
         return repository.findAll();
     }
 
