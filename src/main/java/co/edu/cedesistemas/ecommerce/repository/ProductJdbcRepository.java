@@ -2,6 +2,8 @@ package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.model.Store;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -15,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 @Repository
+@Primary
 public class ProductJdbcRepository implements ProductRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
