@@ -14,7 +14,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
+//@Repository
+//@Primary
 public class OrderItemJdbcRepository implements OrderItemRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private ProductJdbcRepository productJdbcRepository;

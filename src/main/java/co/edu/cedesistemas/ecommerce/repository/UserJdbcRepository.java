@@ -8,8 +8,8 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-@Repository
+//@Repository
+//@Primary
 public class UserJdbcRepository implements UserRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 

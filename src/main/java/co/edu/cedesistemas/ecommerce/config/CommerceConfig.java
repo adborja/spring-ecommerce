@@ -9,31 +9,31 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class CommerceConfig {
     private static final String CONNECTOR_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://192.168.99.100:3306/ecommerce";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
 
-
-    @Bean
-    public BasicDataSource basicDataSource() {
-        BasicDataSource basicDataSource= new BasicDataSource();
-        basicDataSource.setDriverClassName(CONNECTOR_DRIVER);
-        basicDataSource.setUrl(DB_URL);
-        basicDataSource.setUsername(DB_USER);
-        basicDataSource.setPassword(DB_PASSWORD);
-        return basicDataSource;
-    }
-
-    @Bean
-    public Map<String, Store> storeMap() {
-        return new HashMap<>();
-    }
-
-    @Bean
-    public NamedParameterJdbcTemplate jdbcTemplate(BasicDataSource basicDataSource) {
-        return new NamedParameterJdbcTemplate(basicDataSource);
-    }
+//
+//    @Bean
+//    public BasicDataSource basicDataSource() {
+//        BasicDataSource basicDataSource= new BasicDataSource();
+//        basicDataSource.setDriverClassName(CONNECTOR_DRIVER);
+//        basicDataSource.setUrl(DB_URL);
+//        basicDataSource.setUsername(DB_USER);
+//        basicDataSource.setPassword(DB_PASSWORD);
+//        return basicDataSource;
+//    }
+//
+//    @Bean
+//    public Map<String, Store> storeMap() {
+//        return new HashMap<>();
+//    }
+//
+//    @Bean
+//    public NamedParameterJdbcTemplate jdbcTemplate(BasicDataSource basicDataSource) {
+//        return new NamedParameterJdbcTemplate(basicDataSource);
+//    }
 }

@@ -7,7 +7,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import java.util.List;
-
+//@Repository
+//@Primary
 public class OrderJdbcRepository implements OrderRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
