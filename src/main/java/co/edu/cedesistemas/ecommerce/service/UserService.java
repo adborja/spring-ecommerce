@@ -1,7 +1,9 @@
 package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.repository.StoreMapRepository;
+import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
 
 import java.time.LocalDateTime;
 import java.util.Set;
