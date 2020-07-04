@@ -5,7 +5,7 @@ import java.util.Objects;
 public class OrderItem implements Entity<String>{
     private String id;
     private String orderId;
-    private Product product;
+    private String product;
     private Float finalPrice;
     private Integer quantity;
 
@@ -26,11 +26,11 @@ public class OrderItem implements Entity<String>{
         this.orderId = orderId;
     }
 
-    public Product getProduct() {
+    public String getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(String product) {
         this.product = product;
     }
 

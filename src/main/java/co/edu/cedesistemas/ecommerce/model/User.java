@@ -8,9 +8,9 @@ public class User implements Entity<String>{
     private String lastName;
     private String email;
 
-    Override
+    @Override
     public String getId() {
-        return id;
+        return null;
     }
 
     public void setId(String id) {
@@ -53,4 +53,6 @@ public class User implements Entity<String>{
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
 }

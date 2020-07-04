@@ -4,13 +4,14 @@ import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.repository.StoreMapRepository;
 import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
+import co.edu.cedesistemas.ecommerce.repository.UserRepository;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
 public class UserService {
-    private final UserMapRepository repository;
+    private final UserRepository repository;
 
     public UserService(final UserMapRepository repository) {
         this.repository = repository;
@@ -19,8 +20,7 @@ public class UserService {
     public User createUser(User user) {
         user.setId(UUID.randomUUID().toString());
         //acá no sé que otro campo debo pasar ya que el repositorio es de tipo usermap y espera dos valores el ID y un User
-        user.setName(name);
-        return repository.save(store);
+        return repository.save(user);
     }
 
     public User getById(final String id) {
@@ -31,7 +31,7 @@ public class UserService {
         repository.remove(id);
     }
 
-    public Set<User> getByMail(final String mail) {
+    public Iterable<User> getByMail(final String mail) {
         return repository.findByMail(mail);
     }
 
