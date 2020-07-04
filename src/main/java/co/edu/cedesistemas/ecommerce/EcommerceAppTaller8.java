@@ -33,26 +33,26 @@ public class EcommerceAppTaller8 {
         OrderItemService orderItemService = context.getBean("orderItemService", OrderItemService.class);
 
         // Storing stores ..
-        store1 = storeService.createStore(store1);
-        System.out.println("store created: " + store1);
+        //store1 = storeService.createStore(store1);
+        //System.out.println("store created: " + store1);
 
-        store2 = storeService.createStore(store2);
-        System.out.println("store created: " + store2);
+        //store2 = storeService.createStore(store2);
+        //System.out.println("store created: " + store2);
 
-        store3 = storeService.createStore(store3);
-        System.out.println("store created: " + store3);
+        //store3 = storeService.createStore(store3);
+        //System.out.println("store created: " + store3);
 
         // Getting all stores ...
-        Iterable<Store> allStores = storeService.getAllStores();
-        allStores.forEach(System.out::println);
+        //Iterable<Store> allStores = storeService.getAllStores();
+        //allStores.forEach(System.out::println);
 
         // Finding stores by name ...
-        List<Store> found = storeService.getByName("the");
-        found.forEach(System.out::println);
+        //List<Store> found = storeService.getByName("the");
+        //found.forEach(System.out::println);
 
         // Finding stores by type ...
-        List<Store> foundByType = (List<Store>) storeService.getStoresByType(Store.Type.AUTO_PARTS);
-        foundByType.forEach(System.out::println);
+        //List<Store> foundByType = (List<Store>) storeService.getStoresByType(Store.Type.AUTO_PARTS);
+        //foundByType.forEach(System.out::println);
 
         //Create Products
         Product product1 = context.getBean("product1", Product.class);
