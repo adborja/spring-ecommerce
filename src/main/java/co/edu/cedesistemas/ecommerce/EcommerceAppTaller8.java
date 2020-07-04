@@ -59,18 +59,18 @@ public class EcommerceAppTaller8 {
         Product product2 = context.getBean("product2", Product.class);
         Product product3 = context.getBean("product3", Product.class);
 
-        product1 = productService.createProduct(product1);
-        System.out.println("store product: " + product1);
+        //product1 = productService.createProduct(product1);
+        //System.out.println("store product: " + product1);
 
-        product2 = productService.createProduct(product2);
-        System.out.println("store product: " + product2);
+        //product2 = productService.createProduct(product2);
+        //System.out.println("store product: " + product2);
 
-        product3 = productService.createProduct(product3);
-        System.out.println("store product: " + product3);
+        //product3 = productService.createProduct(product3);
+        //System.out.println("store product: " + product3);
 
         // Getting all products ...
-        Iterable<Product> allProducts = productService.getAllProducts();
-        allProducts.forEach(System.out::println);
+        //Iterable<Product> allProducts = productService.getAllProducts();
+        //allProducts.forEach(System.out::println);
 
         // Finding products by name ...
         //List<Product> listProductsName = productService.getByName("TV");
@@ -92,8 +92,8 @@ public class EcommerceAppTaller8 {
 
         //Finding all By Order
         System.out.println("Finding all By Order");
-        List<OrderItem> listOrderItem = orderItemService.findAllByOrder("1");
-        listOrderItem.forEach(System.out::println);
+        //List<OrderItem> listOrderItem = orderItemService.findAllByOrder("1");
+        //listOrderItem.forEach(System.out::println);
     }
 
     private static void loadFromAnnotations() {
@@ -110,30 +110,30 @@ public class EcommerceAppTaller8 {
         Product product1 = new Product();
         product1.setName("Iphone");
         product1.setDescription("Iphone 11");
-        productService.createProduct(product1);
+        //productService.createProduct(product1);
         System.out.println("store product: " + product1);
 
         Product product2 = new Product();
         product2.setName("Portatil");
         product2.setDescription("Portatil Lenovo");
-        productService.createProduct(product2);
+        //productService.createProduct(product2);
         System.out.println("store product: " + product2);
 
         Product product3 = new Product();
         product3.setName("Nevera");
         product3.setDescription("Nevera Haceb");
-        productService.createProduct(product3);
+        //productService.createProduct(product3);
         System.out.println("store product: " + product3);
 
         Product product4 = new Product();
         product4.setName("Carro");
         product4.setDescription("Automovil");
-        productService.createProduct(product4);
+        //productService.createProduct(product4);
         System.out.println("store product: " + product4);
 
         // Getting all products ...
-        Iterable<Product> allProducts = productService.getAllProducts();
-        allProducts.forEach(System.out::println);
+        //Iterable<Product> allProducts = productService.getAllProducts();
+        //allProducts.forEach(System.out::println);
 
         //Getting all order item
         System.out.println("Getting all order item");

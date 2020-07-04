@@ -1,6 +1,6 @@
 package co.edu.cedesistemas.ecommerce.service;
 
-import co.edu.cedesistemas.ecommerce.model.OrderItem;
+import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
 import co.edu.cedesistemas.ecommerce.repository.OrderItemRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ public class OrderItemService {
     }
 
     public List<OrderItem> findAllByOrder(String orderId) {
-        return repository.findAllByOrder("1");
+        return repository.findAllByOrder(orderId);
     }
 }

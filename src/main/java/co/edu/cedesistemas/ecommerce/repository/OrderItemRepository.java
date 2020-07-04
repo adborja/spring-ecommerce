@@ -1,6 +1,6 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.OrderItem;
+import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
 
 import java.util.List;
 
