@@ -1,4 +1,4 @@
-package co.edu.cedesistemas.ecommerce;
+/*package co.edu.cedesistemas.ecommerce;
 
 import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
 import co.edu.cedesistemas.ecommerce.model.Product;
@@ -19,7 +19,7 @@ public class EcommerceAppAnterior {
         loadFromAnnotations();
         //loadFromXML();
     }
-    /*
+
     private static void loadFromXML() {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml","spring-sample-user.xml");
@@ -81,7 +81,7 @@ public class EcommerceAppAnterior {
         //userService.delete("403f6b32-ed2b-4037-8ca4-eca91219aff8");
         //userService.delete("41b666ca-ca00-4dd0-b26d-cafc8de52e9b");
         //userService.delete("49f2d849-65c6-41fa-a9af-2acf740c8257");
-    }*/
+    }
 
     private static void loadFromAnnotations() {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(CommerceConfig.class);
@@ -93,7 +93,7 @@ public class EcommerceAppAnterior {
         //Instancia ProductService
         ProductService productService = ctx.getBean(ProductService.class);
         System.out.println(productService);
-    /*
+
         Product product1 = new Product();
         product1.setName("laptoMac1");
         product1.setDescription("laptoMacV1");
@@ -114,6 +114,6 @@ public class EcommerceAppAnterior {
         product4.setDescription("laptoMacV4");
         product4 = productService.createProduct(product4);
 
-        String prueba = product4.getId();*/
+        String prueba = product4.getId();
     }
-}
+}*/

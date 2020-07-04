@@ -9,14 +9,14 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class CommerceConfig {
     private static final String CONNECTOR_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/ecommerce";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
 
-    @Bean
+   // @Bean
     public BasicDataSource basicDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(CONNECTOR_DRIVER);
@@ -27,12 +27,12 @@ public class CommerceConfig {
         return dataSource;
     }
 
-    @Bean
+    //@Bean
     public Map<String, Store> storeMap() {
         return new HashMap<>();
     }
 
-    @Bean
+   // @Bean
     public NamedParameterJdbcTemplate jdbcTemplate(BasicDataSource basicDataSource) {
         return new NamedParameterJdbcTemplate(basicDataSource);
     }
