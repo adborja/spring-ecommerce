@@ -3,7 +3,7 @@ package co.edu.cedesistemas.ecommerce.repository;
 import co.edu.cedesistemas.ecommerce.model.Address;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public class AddressJdbcRepository implements AddressRepository {
 
     @Override

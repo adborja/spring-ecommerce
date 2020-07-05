@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-@Repository
-@Primary
+//@Repository
+//@Primary
 public class UserJdbcRepository implements UserRepository {
 
     @Override
