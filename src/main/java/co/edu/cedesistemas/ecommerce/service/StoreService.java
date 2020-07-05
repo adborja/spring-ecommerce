@@ -1,9 +1,7 @@
 package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.Store;
-import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.repository.StoreMapRepository;
-import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -11,11 +9,9 @@ import java.util.UUID;
 
 public class StoreService {
     private final StoreMapRepository repository;
-    private final UserMapRepository repositoryuser;
 
-    public StoreService(final StoreMapRepository repository, UserMapRepository repositoryuser) {
+    public StoreService(final StoreMapRepository repository) {
         this.repository = repository;
-        this.repositoryuser = repositoryuser;
     }
 
     public Store createStore(Store store) {
@@ -28,7 +24,7 @@ public class StoreService {
         return repository.findById(id);
     }
 
-     public void delete(final String id) {
+    public void delete(final String id) {
         repository.remove(id);
     }
 
@@ -38,11 +34,5 @@ public class StoreService {
 
     public Iterable<Store> getAllStores() {
         return repository.findAll();
-    }
-
-    public User createUser(User user){
-        user.setId(UUID.randomUUID().toString());
-        return null;
-        //return repositoryuser.save(user);
     }
 }
