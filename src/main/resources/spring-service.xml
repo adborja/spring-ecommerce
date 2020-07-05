@@ -7,4 +7,7 @@
         <!--constructor-arg name="repository" ref="store-map-repository" /-->
         <constructor-arg name="repository" ref="store-jdbc-repository" />
     </bean>
+    <bean id="userService" class="co.edu.cedesistemas.ecommerce.service.UserService" >
+        <constructor-arg name="repository" ref="user-jdbc-repository" />
+    </bean>
 </beans>

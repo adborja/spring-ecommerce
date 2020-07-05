@@ -1,4 +1,9 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-public class OrderMapRepository {
+import java.util.Map;
+
+public class OrderMapRepository extends AbstractMapRepository {
+    public OrderMapRepository(Map repository) {
+        super(repository);
+    }
 }
