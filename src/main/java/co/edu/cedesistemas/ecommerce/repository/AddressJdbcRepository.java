@@ -1,19 +1,15 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Address;
-import co.edu.cedesistemas.ecommerce.model.Store;
-import co.edu.cedesistemas.ecommerce.model.User;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-public class AddressMapRepository implements AddressRepository {
+public class AddressJdbcRepository implements AddressRepository {
+    private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    protected final Map<String, Address> repository;
+    public AddressJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
 
-    public AddressMapRepository(Map<String, Address> repository) {
-        this.repository = repository;
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
@@ -38,5 +34,4 @@ public class AddressMapRepository implements AddressRepository {
 
         return null;
     }
-
 }

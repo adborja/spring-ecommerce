@@ -1,24 +1,34 @@
 package co.edu.cedesistemas.ecommerce;
 
+import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
+import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
+import co.edu.cedesistemas.ecommerce.service.ProductService;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 import java.util.Set;
 
-public class EcommerceApp {
+public class EcommerceAppPPal {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml",
+        loadFromAnnotations();
+        //loadFromXML();
+    }
+
+    private static void loadFromXML() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml","spring-sample-user.xml");
         Store store1 = context.getBean("store1", Store.class);
         Store store2 = context.getBean("store2", Store.class);
         Store store3 = context.getBean("store3", Store.class);
 
         StoreService storeService = context.getBean("storeService", StoreService.class);
+
 
         // Storing stores ..
         store1 = storeService.createStore(store1);
@@ -35,7 +45,7 @@ public class EcommerceApp {
         allStores.forEach(System.out::println);
 
         // Finding stores by name ...
-        Set<Store> found = storeService.getByName("the");
+        List<Store> found = storeService.getByName("the");
         found.forEach(System.out::println);
 
         //Users
@@ -58,10 +68,45 @@ public class EcommerceApp {
         Iterable<User> allUsers = userService.getAllUser();
         allUsers.forEach(System.out::println);
 
-        //Finding users by email
-        System.out.println("---Consulta usuario por Email--");
-        Set<User> search = userService.getByEmail("aramirez@example.com");
-        search.forEach(System.out::println);
+        //buscar por email
+        System.out.println("\nBuscar por email =\n");
+        List<User> userByEmail = userService.getByEmail("@prueba.com");
+        userByEmail.forEach(System.out::println);
+        System.out.println("\n");
 
-        }
+    }
+
+    private static void loadFromAnnotations() {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(CommerceConfig.class);
+        ctx.scan("co.edu.cedesistemas.ecommerce");
+        StoreService storeService = ctx.getBean(StoreService.class);
+        System.out.println(storeService);
+        UserService userService = ctx.getBean(UserService.class);
+        System.out.println(userService);
+        //Instancia ProductService
+        ProductService productService = ctx.getBean(ProductService.class);
+        System.out.println(productService);
+
+        Product product1 = new Product();
+        product1.setName("laptoMac1");
+        product1.setDescription("laptoMacV1");
+        productService.createProduct(product1);
+
+        Product product2 = new Product();
+        product2.setName("laptoMac2");
+        product2.setDescription("laptoMacV2");
+        productService.createProduct(product2);
+
+        Product product3 = new Product();
+        product3.setName("laptoMac3");
+        product3.setDescription("laptoMacV3");
+        productService.createProduct(product3);
+
+        Product product4 = new Product();
+        product4.setName("laptoMac4");
+        product4.setDescription("laptoMacV4");
+        product4 = productService.createProduct(product4);
+
+        String prueba = product4.getId();
+    }
 }

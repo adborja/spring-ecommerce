@@ -1,27 +1,24 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Order;
-import co.edu.cedesistemas.ecommerce.model.Store;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import java.util.Map;
+import java.util.List;
 
-public class OrderMapRepository implements OrderRepository{
+public class OrderJdbcRepository implements OrderRepository {
+    private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    protected final Map<String,Order> repository;
-    public OrderMapRepository(Map<String, Order> repository) {
-
-        this.repository = repository;
+    public OrderJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
     public <S extends Order> S save(S entity) {
-
         return null;
     }
 
     @Override
     public Order findById(String s) {
-
         return null;
     }
 
@@ -32,9 +29,6 @@ public class OrderMapRepository implements OrderRepository{
 
     @Override
     public Iterable<Order> findAll() {
-
         return null;
     }
 }
-
-

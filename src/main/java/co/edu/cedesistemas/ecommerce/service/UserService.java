@@ -1,40 +1,44 @@
 package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.User;
-import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
+import co.edu.cedesistemas.ecommerce.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
+@Service
 public class UserService {
 
-    private final UserMapRepository repository;
+    private final UserRepository repository;
 
-    public UserService(final UserMapRepository repository) {
+    public UserService(final UserRepository repository){
 
         this.repository = repository;
     }
 
-    public User createUser(User user) {
+    public User createUser(User user){
         user.setId(UUID.randomUUID().toString());
         return repository.save(user);
     }
 
-    public User getById(final String id) {
+    public User getById(final String id){
 
         return repository.findById(id);
     }
 
-    public void delete(final String id) {
+    public void delete(final String id){
 
         repository.remove(id);
     }
 
-    public Set<User> getByEmail(final String email){
+    public List<User> getByEmail(final String email){
+
         return repository.findByEmail(email);
     }
 
-    public Iterable<User> getAllUser() {
+    public Iterable<User> getAllUser(){
+
         return repository.findAll();
     }
 }
