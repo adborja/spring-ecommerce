@@ -3,11 +3,13 @@ package co.edu.cedesistemas.ecommerce.service;
 import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.repository.UserMapRepository;
 import co.edu.cedesistemas.ecommerce.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+@Service
 public class UserService {
     private final UserRepository repository;
 
