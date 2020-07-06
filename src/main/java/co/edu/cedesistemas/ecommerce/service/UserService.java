@@ -9,11 +9,9 @@ import java.util.UUID;
 
 @Service
 public class UserService {
-
     private final UserRepository repository;
 
     public UserService(final UserRepository repository){
-
         this.repository = repository;
     }
 
@@ -23,26 +21,22 @@ public class UserService {
     }
 
     public User getById(final String id){
-
         return repository.findById(id);
     }
 
     public void delete(final String id){
-
         repository.remove(id);
     }
 
     public List<User> getByEmail(final String email){
-
         return repository.findByEmail(email);
     }
 
     public Iterable<User> getAllUser(){
-
         return repository.findAll();
     }
-}
 
+}
 
 
 

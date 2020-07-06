@@ -11,7 +11,6 @@ public class ProductJdbcRepository implements ProductRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     public ProductJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
-
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -32,7 +31,6 @@ public class ProductJdbcRepository implements ProductRepository {
 
     @Override
     public Product findById(String s) {
-
         return null;
     }
 
@@ -43,7 +41,6 @@ public class ProductJdbcRepository implements ProductRepository {
 
     @Override
     public Iterable<Product> findAll() {
-
         return null;
     }
 }

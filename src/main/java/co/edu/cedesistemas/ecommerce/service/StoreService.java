@@ -1,7 +1,7 @@
 package co.edu.cedesistemas.ecommerce.service;
 
-import co.edu.cedesistemas.ecommerce.model.Store;
-import co.edu.cedesistemas.ecommerce.repository.StoreRepository;
+import co.edu.cedesistemas.ecommerce.model.document.Store;
+import co.edu.cedesistemas.ecommerce.repository.mongo.StoreRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,7 +13,6 @@ public class StoreService {
     private final StoreRepository repository;
 
     public StoreService(final StoreRepository repository) {
-
         this.repository = repository;
     }
 
@@ -24,28 +23,22 @@ public class StoreService {
     }
 
     public Store getById(final String id) {
-
-        return repository.findById(id);
+        return repository.findById(id).orElse(null);
     }
 
-
     public void delete(final String id) {
-
-        repository.remove(id);
+        repository.deleteById(id);
     }
 
     public List<Store> getByName(final String name) {
-
-        return repository.findByName(name);
+        return repository.findByNameLike(name);
     }
 
     public Iterable<Store> getAllStores() {
-
         return repository.findAll();
     }
 
     public Iterable<Store> getStoresByType(Store.Type type) {
-
         return repository.findByType(type);
     }
 }

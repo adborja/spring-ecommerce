@@ -18,17 +18,17 @@ public class CommerceConfig {
 
     @Bean
     public BasicDataSource basicDataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(CONNECTOR_DRIVER);
-        dataSource.setUrl(DB_URL);
-        dataSource.setUsername(DB_USER);
-        dataSource.setPassword(DB_PASSWORD);
-
-        return dataSource;
+        BasicDataSource basicDataSource= new BasicDataSource();
+        basicDataSource.setDriverClassName(CONNECTOR_DRIVER);
+        basicDataSource.setUrl(DB_URL);
+        basicDataSource.setUsername(DB_USER);
+        basicDataSource.setPassword(DB_PASSWORD);
+        return basicDataSource;
     }
 
     @Bean
     public Map<String, Store> storeMap() {
+
         return new HashMap<>();
     }
 
@@ -36,4 +36,5 @@ public class CommerceConfig {
     public NamedParameterJdbcTemplate jdbcTemplate(BasicDataSource basicDataSource) {
         return new NamedParameterJdbcTemplate(basicDataSource);
     }
+
 }

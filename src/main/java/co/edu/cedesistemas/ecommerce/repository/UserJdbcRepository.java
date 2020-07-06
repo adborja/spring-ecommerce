@@ -18,7 +18,6 @@ public class UserJdbcRepository implements UserRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     public UserJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
-
         this.jdbcTemplate = jdbcTemplate;
     }
 

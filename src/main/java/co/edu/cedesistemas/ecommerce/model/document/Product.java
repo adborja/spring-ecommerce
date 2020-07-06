@@ -1,14 +1,17 @@
-package co.edu.cedesistemas.ecommerce.model;
+package co.edu.cedesistemas.ecommerce.model.document;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
-public class User implements Entity<String> {
+@Document("product")
+public class Product {
+    @Id
     private String id;
     private String name;
-    private String lastName;
-    private String email;
+    private String description;
 
-    @Override
     public String getId() {
         return id;
     }
@@ -25,28 +28,21 @@ public class User implements Entity<String> {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getDescription() {
+        return description;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    public void setDescription(String description) {
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+        this.description = description;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id.equals(user.id);
+        Product product = (Product) o;
+        return id.equals(product.id);
     }
 
     @Override
