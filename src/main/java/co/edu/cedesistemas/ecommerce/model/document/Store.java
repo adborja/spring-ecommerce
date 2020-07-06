@@ -1,9 +1,14 @@
-package co.edu.cedesistemas.ecommerce.model;
+package co.edu.cedesistemas.ecommerce.model.document;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Store implements Entity<String> {
+@Document("store")
+public class Store {
+    @Id
     private String id;
     private String name;
     private String phone;
@@ -12,7 +17,6 @@ public class Store implements Entity<String> {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    @Override
     public String getId() {
         return id;
     }

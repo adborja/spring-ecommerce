@@ -1,14 +1,18 @@
-package co.edu.cedesistemas.ecommerce.model;
+package co.edu.cedesistemas.ecommerce.model.document;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
-public class Order implements Entity<String> {
+@Document("order")
+public class Order {
+    @Id
     private String id;
     private User user;
     private Store store;
     private Address shippingAddress;
 
-    @Override
     public String getId() {
         return id;
     }

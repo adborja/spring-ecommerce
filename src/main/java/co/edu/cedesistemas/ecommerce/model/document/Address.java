@@ -1,8 +1,13 @@
-package co.edu.cedesistemas.ecommerce.model;
+package co.edu.cedesistemas.ecommerce.model.document;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
-public class Address implements Entity<String> {
+@Document("address")
+public class Address {
+    @Id
     private String id;
     private String name;
     private String description;
@@ -15,7 +20,6 @@ public class Address implements Entity<String> {
     private String street3;
     private String zip;
 
-    @Override
     public String getId() {
         return id;
     }
