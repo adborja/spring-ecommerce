@@ -45,7 +45,7 @@ public class ProductRepositoryTest {
 
         repository.save(product);
 
-        Product found = repository.findById(id);
+        Product found = repository.findById(id).orElse(null);
 
         assertThat(found, notNullValue());
         assertThat(found.getName(), equalTo("test_repo_product"));
