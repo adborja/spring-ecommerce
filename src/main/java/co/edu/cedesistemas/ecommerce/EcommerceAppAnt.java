@@ -1,3 +1,4 @@
+/*
 package co.edu.cedesistemas.ecommerce;
 import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
 import co.edu.cedesistemas.ecommerce.model.Product;
@@ -112,4 +113,4 @@ public class EcommerceAppAnt {
         productService.createProduct(product4);
     }
 }
-
+*/

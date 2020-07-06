@@ -19,8 +19,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.Mockito.when;
 
-import co.edu.cedesistemas.ecommerce.repository.mongo.OrderRepository;
-
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
