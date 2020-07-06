@@ -1,12 +1,7 @@
 package co.edu.cedesistemas.ecommerce.service;
 
-<<<<<<< HEAD
-import co.edu.cedesistemas.ecommerce.model.Store;
-import co.edu.cedesistemas.ecommerce.repository.StoreRepository;
-=======
 import co.edu.cedesistemas.ecommerce.model.document.Store;
 import co.edu.cedesistemas.ecommerce.repository.mongo.StoreRepository;
->>>>>>> base
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
