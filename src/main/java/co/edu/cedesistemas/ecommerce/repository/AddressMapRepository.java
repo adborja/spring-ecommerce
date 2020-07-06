@@ -4,7 +4,7 @@ import co.edu.cedesistemas.ecommerce.model.Store;
 
 import java.util.Map;
 
-public class AddressMapRepository extends AbstractMapRepository<Store,String>{
+public class AddressMapRepository AbstractMapRepository<Store,String>{
 
     public AddressMapRepository(Map<String, Store> repository) {
         super(repository);
