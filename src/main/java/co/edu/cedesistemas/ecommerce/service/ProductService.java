@@ -2,7 +2,6 @@ package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.repository.mongo.ProductRepository;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -27,5 +26,15 @@ public class ProductService {
         return repository.findByDescriptionLike(description);
     }
 
+    public Iterable<Product> getAllProducts() {
+        return repository.findAll();
+    }
 
+    public Product getById(String id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    public void delete(String id) {
+        repository.deleteById(id);
+    }
 }
