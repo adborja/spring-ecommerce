@@ -10,4 +10,5 @@
     <bean id="userService" class="co.edu.cedesistemas.ecommerce.service.UserService" >
         <constructor-arg name="repository" ref="user-jdbc-repository" />
     </bean>
+
 </beans>

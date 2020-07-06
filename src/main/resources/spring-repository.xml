@@ -13,4 +13,25 @@
     <bean id="store-jdbc-repository" name="store-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.StoreJdbcRepository">
         <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
+
+    <bean id="user-jdbc-repository" name="user-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.UserJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="address-jdbc-repository" name="address-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.AddressJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="product-jdbc-repository" name="product-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.ProductJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="order-jdbc-repository" name="order-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.OrderJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean id="orderItem-jdbc-repository" name="orderItem-jdbc-repository" class="co.edu.cedesistemas.ecommerce.repository.OrderItemJdbcRepository">
+        <constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
 </beans>

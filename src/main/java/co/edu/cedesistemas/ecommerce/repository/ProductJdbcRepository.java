@@ -2,18 +2,10 @@ package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Product;
 
-import java.util.Map;
-
-public class ProductMapRepository implements ProductRepository {
-    protected final Map<String, Product> repository;
-
-    public ProductMapRepository(Map<String, Product> repository) {
-        this.repository = repository;
-    }
+public class ProductJdbcRepository implements ProductRepository {
     @Override
     public <S extends Product> S save(S entity) {
-        repository.put(entity.getId(), entity);
-        return entity;
+        return null;
     }
 
     @Override

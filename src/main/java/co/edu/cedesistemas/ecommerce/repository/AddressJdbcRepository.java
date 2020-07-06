@@ -2,14 +2,7 @@ package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Address;
 
-import java.util.Map;
-
-public class AddressMapRepository implements AddressRepository {
-    protected final Map<String, Address> repository;
-    public AddressMapRepository(Map<String, Address> repository) {
-        this.repository = repository;
-    }
-
+public class AddressJdbcRepository implements AddressRepository {
     @Override
     public <S extends Address> S save(S entity) {
         return null;
