@@ -101,7 +101,9 @@ public class OrderControllerIT {
         Order found = objectMapper.readValue(getResult.getResponse().getContentAsString(), Order.class);
 
         assertThat(found, notNullValue());
+        assertThat(found.getStatus(), equalTo(Order.Status.CREATED));
         assertThat(found.getItems().size(), equalTo(2));
+
     }
 
     @Test
