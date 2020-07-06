@@ -1,7 +1,6 @@
 package co.edu.cedesistemas.ecommerce.repository.mongo;
 
 import co.edu.cedesistemas.ecommerce.model.document.Product;
-import co.edu.cedesistemas.ecommerce.model.document.Store;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
