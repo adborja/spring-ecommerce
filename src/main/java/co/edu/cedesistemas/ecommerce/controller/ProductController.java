@@ -1,7 +1,8 @@
 package co.edu.cedesistemas.ecommerce.controller;
 
 
-import co.edu.cedesistemas.ecommerce.model.document.Product;
+
+import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public ResponseEntity<?> createProduct(@RequestBody Product product) {
-        Product created = productService.createProduct(product);
+    public ResponseEntity<?> createProduct(Product p) {
+        Product created = productService.createProduct(p);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 

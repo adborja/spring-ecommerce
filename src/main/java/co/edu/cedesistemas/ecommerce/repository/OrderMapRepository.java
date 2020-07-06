@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 @Repository
-public class OrderMapRepository extends co.edu.cedesistemas.ecommerce.repository.Repository<Order, String> {
+public class OrderMapRepository implements MapRepository <Order, String> {
     protected final Map<String,Order> repository;
     public OrderMapRepository(Map<String, Order> repository) {
         this.repository = repository;

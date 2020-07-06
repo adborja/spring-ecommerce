@@ -5,6 +5,7 @@ import co.edu.cedesistemas.ecommerce.model.Store;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -36,6 +37,16 @@ public class ProductMapRepository implements ProductRepository {
 
     @Override
     public Iterable<Product> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<Product> findByNameLike(String name) {
+        return null;
+    }
+
+    @Override
+    public List<Product> findByDescriptionLike(String description) {
         return null;
     }
 }

@@ -38,4 +38,11 @@ public class UserService {
     public Iterable<User> getAllUser(){
         return repository.findAll();
     }
+
+    public User updateUser(String id,User user){
+        User found = getById(id);
+        found.setEmail(user.getEmail() !=null? user.getEmail():found.getEmail());
+        found.setName(user.getName());
+        return repository.save(found);
+    }
 }

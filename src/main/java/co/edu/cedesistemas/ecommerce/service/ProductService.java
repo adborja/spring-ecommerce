@@ -1,8 +1,8 @@
 package co.edu.cedesistemas.ecommerce.service;
 
 
-import co.edu.cedesistemas.ecommerce.model.document.Product;
-import co.edu.cedesistemas.ecommerce.model.Product
+
+import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ProductService extends co.edu.cedesistemas.ecommerce.model.Product {
+public class ProductService extends Product {
     private  final ProductRepository repository;
 
 
@@ -24,7 +24,7 @@ public class ProductService extends co.edu.cedesistemas.ecommerce.model.Product 
     }
 
     public Product getById(final String id) {
-        return repository.findById(id).orElse(null);
+        return repository.findById(id);
     }
 
     public List<Product> getByName(String name) {
@@ -40,7 +40,7 @@ public class ProductService extends co.edu.cedesistemas.ecommerce.model.Product 
     }
 
     public void deleteById(final String id) {
-        repository.deleteById(id);
+        repository.remove(id);
     }
 
 }

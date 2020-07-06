@@ -6,8 +6,10 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
+import java.util.List;
+
 @Repository
-public class ProductJdbcRepository extends Repository<co.edu.cedesistemas.ecommerce.model.document.Product, String> {
+public class ProductJdbcRepository implements ProductRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     public ProductJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
@@ -41,6 +43,16 @@ public class ProductJdbcRepository extends Repository<co.edu.cedesistemas.ecomme
 
     @Override
     public Iterable<Product> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<Product> findByNameLike(String name) {
+        return null;
+    }
+
+    @Override
+    public List<Product> findByDescriptionLike(String description) {
         return null;
     }
 }
