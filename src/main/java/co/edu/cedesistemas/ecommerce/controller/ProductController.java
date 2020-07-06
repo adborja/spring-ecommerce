@@ -31,7 +31,7 @@ public class ProductController {
 
     @GetMapping("/products")
     public ResponseEntity<?> getAllProducts() {
-        Iterable<Product> products = productService.getAllProducts();
+        Iterable<Product> products = productService.getAllProduct();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
@@ -55,7 +55,7 @@ public class ProductController {
 
     @DeleteMapping("/products/{id}")
     public ResponseEntity<?> deleteProductById(@PathVariable String id) {
-        productService.delete(id);
+        productService.deleteById(id);
         return new ResponseEntity<>("Delete Product :" + id, HttpStatus.OK );
     }
 }
