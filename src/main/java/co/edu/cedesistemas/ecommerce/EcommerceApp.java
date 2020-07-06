@@ -106,7 +106,7 @@ public class EcommerceApp {
         Product product5 = new Product();
         product5.setName("laptop5");
         product5.setDescription("portatil laptop 5");
-        productService.createProduct(product4);
+        productService.createProduct(product5);
 
     }
 }
