@@ -22,7 +22,7 @@ public class EcommerceAppTaller8 {
     }
 
     private static void loadFromXML() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
+        /**ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml", "spring-sample-products.xml");
         Store store1 = context.getBean("store1", Store.class);
         Store store2 = context.getBean("store2", Store.class);
@@ -93,11 +93,11 @@ public class EcommerceAppTaller8 {
         //Finding all By Order
         System.out.println("Finding all By Order");
         //List<OrderItem> listOrderItem = orderItemService.findAllByOrder("1");
-        //listOrderItem.forEach(System.out::println);
+        //listOrderItem.forEach(System.out::println);**/
     }
 
     private static void loadFromAnnotations() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CommerceConfig.class);
+        /**AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CommerceConfig.class);
         context.scan("co.edu.cedesistemas.ecommerce");
         StoreService storeService = context.getBean(StoreService.class);
         System.out.println(storeService);
@@ -138,6 +138,6 @@ public class EcommerceAppTaller8 {
         //Getting all order item
         System.out.println("Getting all order item");
         //List<OrderItem> item = orderItemService.findAllByOrder("1");
-        //item.forEach(System.out::println);
+        //item.forEach(System.out::println);**/
     }
 }
