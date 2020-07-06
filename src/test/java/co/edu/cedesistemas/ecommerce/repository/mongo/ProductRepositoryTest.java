@@ -2,7 +2,6 @@ package co.edu.cedesistemas.ecommerce.repository.mongo;
 
 import co.edu.cedesistemas.ecommerce.common.TestUtils;
 import co.edu.cedesistemas.ecommerce.model.document.Product;
-import co.edu.cedesistemas.ecommerce.repository.mongo.ProductRepository;
 import org.assertj.core.internal.bytebuddy.utility.RandomString;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,7 +29,7 @@ public class ProductRepositoryTest {
         product.setId(id);
         product.setCreatedAt(LocalDateTime.now());
 
-        Product saved = repository.save(product);
+        Product saved = this.repository.save(product);
 
         assertThat(saved, notNullValue());
         assertThat(saved.getId(), equalTo(id));
