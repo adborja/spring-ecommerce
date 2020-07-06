@@ -29,7 +29,8 @@ public class StoreService {
     }
 
     public Set<Store> getByName(final String name) {
-        return repository.findByName(name);
+        //return repository.findByName(name);
+        return null;
     }
 
     public Iterable<Store> getAllStores() {
