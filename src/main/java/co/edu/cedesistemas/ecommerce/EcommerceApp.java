@@ -1,8 +1,10 @@
 package co.edu.cedesistemas.ecommerce;
 
 import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
+import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
+import co.edu.cedesistemas.ecommerce.service.ProductService;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.context.ApplicationContext;
@@ -18,7 +20,7 @@ public class EcommerceApp {
     }
 
     private static void loadFromXML() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
+        ApplicationContext context = new AnnotationConfigApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml","spring-sample-user.xml");
         Store store1 = context.getBean("store1", Store.class);
         Store store2 = context.getBean("store2", Store.class);
@@ -82,5 +84,26 @@ public class EcommerceApp {
         ctx.scan("co.edu.cedesistemas.ecommerce");
         StoreService storeService = ctx.getBean(StoreService.class);
         System.out.println(storeService);
+        UserService userService = ctx.getBean(UserService.class);
+        System.out.println(userService);
+        //Instancia ProductService
+        ProductService productService = ctx.getBean(ProductService.class);
+        System.out.println(productService);
+        Product product1 = new Product();
+        product1.setName("pd1");
+        product1.setDescription("pd1");
+        productService.createProduct(product1);
+        Product product2 = new Product();
+        product2.setName("pd2");
+        product2.setDescription("pd2");
+        productService.createProduct(product2);
+        Product product3 = new Product();
+        product3.setName("pd3");
+        product3.setDescription("pd3");
+        productService.createProduct(product3);
+        Product product4 = new Product();
+        product4.setName("pd4");
+        product4.setDescription("pd4");
+        product4 = productService.createProduct(product4);
     }
 }

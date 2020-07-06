@@ -33,14 +33,21 @@ public class  OrderItemJdbcRepository implements OrderItemRepository{
     }
 
     @Override
+    public List<OrderItem> findAllByOrder(String orderId) {
+        return null;
+    }
+
+    /*@Override
     public List<OrderItem> findAllByOrder(final String orderId) {
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate.getJdbcTemplate())
                 .withProcedureName("get_order_items")
-                .returningResultSet("orderItems", new OrderItemJdbcRepository.OrderItemRowMapper());
+                //.returningResultSet("orderItems", new Orde);
         SqlParameterSource in = new MapSqlParameterSource()
                 .addValue("oId", orderId);
 
         return (List<OrderItem>) jdbcCall.execute(in).get("orderItems");
-    }
+    }*/
+
+
 
 }
