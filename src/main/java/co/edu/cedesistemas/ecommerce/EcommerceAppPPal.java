@@ -1,4 +1,4 @@
-package co.edu.cedesistemas.ecommerce;
+/*package co.edu.cedesistemas.ecommerce;
 
 import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
 import co.edu.cedesistemas.ecommerce.model.document.Product;
@@ -110,3 +110,4 @@ public class EcommerceAppPPal {
         String prueba = product4.getId();
     }
 }
+*/

@@ -11,6 +11,7 @@ import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
 import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.model.document.Store;
 import co.edu.cedesistemas.ecommerce.model.document.User;
+import co.edu.cedesistemas.ecommerce.repository.AddressRepository;
 import org.assertj.core.internal.bytebuddy.utility.RandomString;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
