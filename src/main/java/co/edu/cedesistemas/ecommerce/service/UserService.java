@@ -26,7 +26,7 @@ public class UserService {
         return repository.findById(id).orElse(null);
     }
 
-    public List<User> getByEmail(final String email){
+    public User getByEmail(final String email){
         return repository.findByEmail(email);
     }
 

@@ -31,7 +31,7 @@ public class UserController {
 
     @GetMapping("/users/by-email")
     public ResponseEntity<?> getUserByEmail(@RequestParam String email) {
-        List<User> found = userService.getByEmail(email);
+        User found = userService.getByEmail(email);
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 

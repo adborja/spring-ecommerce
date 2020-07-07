@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
     List<User> findByNameLike(String name);
-    List<User> findByEmail(String email);
+    User findByEmail(String email);
 
 }
