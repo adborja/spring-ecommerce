@@ -1,10 +1,22 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.User;
+import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//@Repository
+//@Primary
 public class UserJdbcRepository implements UserRepository{
+    private final NamedParameterJdbcTemplate jdbcTemplate;
+
+    public UserJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+
     @Override
     public List<User> findByName(String name) {
         return null;

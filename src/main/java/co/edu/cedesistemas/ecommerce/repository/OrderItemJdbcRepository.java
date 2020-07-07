@@ -1,17 +1,21 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.OrderItem;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.simple.SimpleJdbcCall;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.util.List;
-
+//@Repository
 public class  OrderItemJdbcRepository implements OrderItemRepository{
+
+    private final NamedParameterJdbcTemplate jdbcTemplate;
+    private ProductJdbcRepository productJdbcRepository;
+
+    public OrderItemJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate,
+                                   ProductJdbcRepository productJdbcRepository) {
+        this.jdbcTemplate = jdbcTemplate;
+        this.productJdbcRepository = productJdbcRepository;
+    }
+
     @Override
     public <S extends OrderItem> S save(S entity) {
         return null;

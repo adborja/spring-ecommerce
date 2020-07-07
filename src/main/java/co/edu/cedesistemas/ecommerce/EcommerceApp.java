@@ -1,25 +1,31 @@
 package co.edu.cedesistemas.ecommerce;
 
 import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
-import co.edu.cedesistemas.ecommerce.model.Product;
+
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
+import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import co.edu.cedesistemas.ecommerce.service.UserService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
+@SpringBootApplication
 public class EcommerceApp {
     public static void main(String[] args) {
-        loadFromAnnotations();
+        SpringApplication.run(EcommerceApp.class);
+
+        //loadFromAnnotations();
         //loadFromXML();
     }
 
-    private static void loadFromXML() {
+  /*  private static void loadFromXML() {
         ApplicationContext context = new AnnotationConfigApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml","spring-sample-user.xml");
         Store store1 = context.getBean("store1", Store.class);
@@ -105,5 +111,5 @@ public class EcommerceApp {
         product4.setName("pd4");
         product4.setDescription("pd4");
         product4 = productService.createProduct(product4);
-    }
+    }*/
 }
