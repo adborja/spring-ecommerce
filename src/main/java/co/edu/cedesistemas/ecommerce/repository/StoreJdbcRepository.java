@@ -15,8 +15,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
-@Repository
-@Primary
+//@Repository
+//@Primary
 public class StoreJdbcRepository implements StoreRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
