@@ -27,4 +27,16 @@ public class ProductService {
     public List<Product> getByDescription(String description){
         return repository.findByDescriptionLike(description);
     }
+
+    public Iterable<Product> getAllProduct() {
+        return repository.findAll();
+    }
+
+    public Product getById(String id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    public void deleteById(String id) {
+        repository.deleteById(id);
+    }
 }
