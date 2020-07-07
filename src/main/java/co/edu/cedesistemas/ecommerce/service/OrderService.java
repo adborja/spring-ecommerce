@@ -1,9 +1,7 @@
 package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.document.Order;
-import co.edu.cedesistemas.ecommerce.model.document.Store;
 import co.edu.cedesistemas.ecommerce.repository.mongo.OrderRepository;
-import co.edu.cedesistemas.ecommerce.repository.mongo.StoreRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -20,6 +18,7 @@ public class OrderService {
 
     public Order createOrder(Order o) {
         o.setId(UUID.randomUUID().toString());
+        o.setStatus(Order.Status.CREATED);
         o.setCreatedAt(LocalDateTime.now());
         return repository.save(o);
     }
@@ -32,7 +31,7 @@ public class OrderService {
         repository.deleteById(id);
     }
 
-    public Iterable<Order> getAllStores() {
+    public Iterable<Order> getAllOrders() {
         return repository.findAll();
     }
 

@@ -18,6 +18,7 @@ public class ProductService {
 
     public Product createProduct(Product p) {
         p.setId(UUID.randomUUID().toString());
+        p.setCreatedAt(LocalDateTime.now());
         return repository.save(p);
     }
 

@@ -1,5 +1,6 @@
 package co.edu.cedesistemas.ecommerce.repository.mongo;
 
+import co.edu.cedesistemas.ecommerce.model.OrderItem;
 import co.edu.cedesistemas.ecommerce.model.document.Order;
 import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.model.document.Store;

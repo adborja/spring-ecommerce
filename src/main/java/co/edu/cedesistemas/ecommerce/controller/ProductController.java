@@ -30,15 +30,15 @@ public class ProductController {
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
-    @GetMapping("/products/name")
+    @GetMapping("/products/by-name")
     public ResponseEntity<?> getProductByName(@RequestParam String name){
         List<Product> products = productService.getByName(name);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    @GetMapping("/products/description")
-    public ResponseEntity<?> getProductByDescription(@RequestParam String description){
-        List<Product> products = productService.getByDescription(description);
+    @GetMapping("/products/by-description")
+    public ResponseEntity<?> getProductByDescription(@RequestParam String desc){
+        List<Product> products = productService.getByDescription(desc);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
