@@ -7,4 +7,11 @@
         <!--constructor-arg name="repository" ref="store-map-repository" /-->
         <constructor-arg name="repository" ref="store-jdbc-repository" />
     </bean>
+    <bean id="userMap" class="java.util.HashMap" />
+    <bean id="userRepository" name="userRepository" class="co.edu.cedesistemas.ecommerce.repository.UserMapRepository">
+            <contructor-arg name="repository" ref="userMap" />
+    </bean>
+    <bean id="userService" class="co.edu.cedesistemas.ecommerce.service.UserService">
+        <constructor-arg name="repository" ref="user-jdbc-repository" />
+    </bean>
 </beans>
