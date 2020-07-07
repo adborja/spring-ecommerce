@@ -1,9 +1,9 @@
 package co.edu.cedesistemas.ecommerce.repository.mongo;
 
-import co.edu.cedesistemas.ecommerce.model.document.Order;
+import co.edu.cedesistemas.ecommerce.model.document.Address;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderRepository extends MongoRepository<Order, String> {
+public interface AddressRepository extends MongoRepository<Address, String> {
 }

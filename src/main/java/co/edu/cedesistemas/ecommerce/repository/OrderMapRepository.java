@@ -5,7 +5,8 @@ import co.edu.cedesistemas.ecommerce.model.Order;
 import java.util.Map;
 
 public class OrderMapRepository implements OrderRepository {
-    protected final Map<String,Order> repository;
+    protected final Map<String, Order> repository;
+
     public OrderMapRepository(Map<String, Order> repository) {
         this.repository = repository;
     }

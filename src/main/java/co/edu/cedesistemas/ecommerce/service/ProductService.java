@@ -6,6 +6,7 @@ import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.repository.mongo.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,6 +21,7 @@ public class ProductService {
 
     public Product createProduct(Product product) {
         product.setId(UUID.randomUUID().toString());
+        product.setCreatedAt(LocalDateTime.now());
         return repository.save(product);
     }
 

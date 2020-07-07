@@ -1,17 +1,20 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
+import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
-import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
-@Repository
-@Primary
+//@Repository
 public class UserJdbcRepository implements UserRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
@@ -20,7 +23,7 @@ public class UserJdbcRepository implements UserRepository {
     }
 
     @Override
-    public <S extends User> S save(S entity) {
+    public <S extends User> S save(final S entity) {
         final String insertQ = "INSERT INTO user (id, name, lastName, email)" +
                 " VALUES (:id, :name, :lastName, :email)";
         SqlParameterSource namedParameters = new MapSqlParameterSource()
@@ -57,10 +60,23 @@ public class UserJdbcRepository implements UserRepository {
     }
 
     @Override
-    public List<User> findByEmail(final String email) {
-        final String query = "SELECT id FROM user WHERE email = :email LIMIT 1";
-        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("email", email);
+    public List<User> findByName(final String name) {
+        final String query = "SELECT * FROM user WHERE name LIKE :name";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("name", name);
         System.out.println("Finding from database");
         return jdbcTemplate.queryForList(query, namedParameters, User.class);
+    }
+
+
+    private static class ProductRowMapper implements RowMapper<Product> {
+        @Override
+        public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Product p = new Product();
+            p.setId(rs.getString("id"));
+            p.setName(rs.getString("name"));
+            p.setDescription(rs.getString("description"));
+
+            return p;
+        }
     }
 }

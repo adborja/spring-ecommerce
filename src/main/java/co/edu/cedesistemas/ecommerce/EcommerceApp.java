@@ -1,5 +1,18 @@
 package co.edu.cedesistemas.ecommerce;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EcommerceApp {
+    public static void main(String[] args) {
+
+        SpringApplication.run(EcommerceApp.class);
+    }
+}
+
+/*package co.edu.cedesistemas.ecommerce;
+
 import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
@@ -55,3 +68,4 @@ public class EcommerceApp {
         System.out.println(storeService);
     }
 }
+*/

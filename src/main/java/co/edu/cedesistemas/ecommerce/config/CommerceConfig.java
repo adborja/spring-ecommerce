@@ -1,7 +1,7 @@
 package co.edu.cedesistemas.ecommerce.config;
-
 import co.edu.cedesistemas.ecommerce.model.Store;
 import org.apache.commons.dbcp.BasicDataSource;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.util.HashMap;
@@ -14,7 +14,7 @@ public class CommerceConfig {
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
 
-    // @Bean
+    @Bean
     public BasicDataSource basicDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(CONNECTOR_DRIVER);
@@ -25,12 +25,12 @@ public class CommerceConfig {
         return dataSource;
     }
 
-    //@Bean
+    @Bean
     public Map<String, Store> storeMap() {
         return new HashMap<>();
     }
 
-    // @Bean
+    @Bean
     public NamedParameterJdbcTemplate jdbcTemplate(BasicDataSource basicDataSource) {
         return new NamedParameterJdbcTemplate(basicDataSource);
     }

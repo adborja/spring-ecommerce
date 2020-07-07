@@ -1,7 +1,6 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Address;
-import co.edu.cedesistemas.ecommerce.model.Store;
 
 import java.util.Map;
 
