@@ -1,7 +1,9 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Order;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class OrderItemJdbcRepository implements OrderRepository {
     @Override
     public <S extends Order> S save(S entity) {

@@ -2,11 +2,13 @@ package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.repository.StoreMapRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
+@Service
 public class StoreService {
     private final StoreMapRepository repository;
 
