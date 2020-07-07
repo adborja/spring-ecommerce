@@ -1,9 +1,10 @@
 package co.edu.cedesistemas.ecommerce.service;
 
-import co.edu.cedesistemas.ecommerce.model.Product;
-import co.edu.cedesistemas.ecommerce.repository.ProductRepository;
+import co.edu.cedesistemas.ecommerce.model.document.Product;
+import co.edu.cedesistemas.ecommerce.repository.mongo.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -14,8 +15,16 @@ public class ProductService {
         this.repository = repository;
     }
 
-    public Product createProduct(Product product1) {
-        product1.setId(UUID.randomUUID().toString());
-        return repository.save(product1);
+    public Product createProduct(Product product) {
+        product.setId(UUID.randomUUID().toString());
+        return repository.save(product);
+    }
+
+    public List<Product> getByName(String name){
+        return repository.findByNameLike(name);
+    }
+
+    public List<Product> getByDescription(String description){
+        return repository.findByDescriptionLike(description);
     }
 }
