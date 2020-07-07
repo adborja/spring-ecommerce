@@ -5,9 +5,10 @@ import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
+
+//import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class EcommerceApp {
     public static void main(String[] args) {
@@ -16,7 +17,7 @@ public class EcommerceApp {
     }
 
     private static void loadFromXML() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-service.xml",
+        ApplicationContext context = new AnnotationConfigApplicationContext("spring-service.xml",
                 "spring-sample-stores.xml");
         Store store1 = context.getBean("store1", Store.class);
         Store store2 = context.getBean("store2", Store.class);
