@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-@Repository
+//@Repository
 public class UserJdbcRepository implements UserRepository {
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
