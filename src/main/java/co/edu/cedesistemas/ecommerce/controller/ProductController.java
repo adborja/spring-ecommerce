@@ -35,14 +35,14 @@ public class ProductController {
     }
 
     @GetMapping("/products/by-name")
-    public ResponseEntity<?> getProductsByName(@RequestParam String name) {
+    public ResponseEntity<?> getProductsByName(@RequestParam String name){
         List<Product> products = productService.getByName(name);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     @GetMapping("/products/by-description")
-    public ResponseEntity<?> getProductsBydescription(@RequestParam String description) {
-        List<Product> products = productService.getByDescription(description);
+    public ResponseEntity<?> getProductsBydescription(@RequestParam String desc) {
+        List<Product> products = productService.getByDescription(desc);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 

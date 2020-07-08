@@ -1,11 +1,10 @@
 package co.edu.cedesistemas.ecommerce.service;
 
-
 import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.repository.mongo.ProductRepository;
 import org.springframework.stereotype.Service;
 
-
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,9 +16,10 @@ public class ProductService {
         this.repository = repository;
     }
 
-    public Product createProduct(Product product) {
-        product.setId(UUID.randomUUID().toString());
-        return repository.save(product);
+    public Product createProduct(Product p) {
+        p.setId(UUID.randomUUID().toString());
+        p.setCreatedAt(LocalDateTime.now());
+        return repository.save(p);
     }
 
     public Product getById(final String id) {
@@ -34,18 +34,11 @@ public class ProductService {
         return repository.findByNameLike(name);
     }
 
-    public List<Product> getByDescription(final String descri) {
-        return repository.findByDescriptionLike(descri);
+    public List<Product> getByDescription(final String description) {
+        return repository.findByDescriptionLike(description);
     }
-
-
     public Iterable<Product> getAllProducts() {
         return repository.findAll();
     }
-
-
-
-
-
 
 }
