@@ -29,6 +29,14 @@ public class ProductJdbcRepository implements ProductRepository {
     }
 
     @Override
+    public List<Product> findByDescription(String description) {
+        final String query = "SELECT * FROM product WHERE description LIKE :description";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("description", description);
+        System.out.println("Finding from database");
+        return jdbcTemplate.queryForList(query, namedParameters, Product.class);
+    }
+
+    @Override
     public <S extends Product> S save(S entity) {
         final String insertQ = "INSERT INTO product (id, name, description)" +
                 " VALUES (:id, :name, :description)";

@@ -48,8 +48,8 @@ public class ProductController {
     }
 
     @GetMapping("/products/by-description")
-    public ResponseEntity<?> getProductsByDescription(@RequestParam String description) {
-        List<Product> products = productService.getByDescription(description);
+    public ResponseEntity<?> getProductsByDescription(@RequestParam String desc) {
+        List<Product> products = productService.getByDescription(desc);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 

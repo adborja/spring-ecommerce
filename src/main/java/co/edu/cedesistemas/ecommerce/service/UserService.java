@@ -1,6 +1,7 @@
 package co.edu.cedesistemas.ecommerce.service;
 
-import co.edu.cedesistemas.ecommerce.model.User;
+//import co.edu.cedesistemas.ecommerce.model.User;
+import co.edu.cedesistemas.ecommerce.model.document.User;
 import co.edu.cedesistemas.ecommerce.repository.UserRepository;
 import org.springframework.stereotype.Service;
 

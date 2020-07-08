@@ -1,8 +1,12 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.User;
+//import co.edu.cedesistemas.ecommerce.model.User;
+import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.document.User;
 import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -28,12 +32,24 @@ public class UserJdbcRepository implements UserRepository {
 
     @Override
     public <S extends User> S save(S entity) {
-        return null;
+        final String insertQ = "INSERT INTO user (id, name, lastname, email)" +
+                " VALUES (:id, :name, :lastname, :email)";
+        SqlParameterSource namedParameters = new MapSqlParameterSource()
+                .addValue("id", entity.getId())
+                .addValue("name", entity.getName())
+                .addValue("lastname", entity.getLastName())
+                .addValue("email", entity.getEmail());
+        jdbcTemplate.update(insertQ, namedParameters);
+        System.out.println("Updated User in database");
+        return entity;
     }
 
     @Override
-    public User findById(String s) {
-        return null;
+    public User findById(String id) {
+        final String query = "SELECT * FROM user WHERE id = :id";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+        System.out.println("Finding By Id from database: " + id);
+        return jdbcTemplate.queryForObject(query, namedParameters, User.class);
     }
 
     @Override

@@ -2,7 +2,8 @@ package co.edu.cedesistemas.ecommerce.controller;
 
 import co.edu.cedesistemas.ecommerce.model.document.Order;
 import co.edu.cedesistemas.ecommerce.model.document.Product;
-import co.edu.cedesistemas.ecommerce.service.OrderService;
+import co.edu.cedesistemas.ecommerce.model.document.User;
+import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,22 +11,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-public class OrderController {
-    private final OrderService orderService;
+public class UserController {
+    private final UserService userService;
 
-    public OrderController (final OrderService orderService) {
-        this.orderService = orderService;
+    public UserController (final UserService userService) {
+        this.userService = userService;
     }
 
-    @PostMapping("/orders")
-    public ResponseEntity<?> createOrder(@RequestBody Order order) {
-        Order created = orderService.createOrder(order);
+    @PostMapping("/users")
+    public ResponseEntity<?> createUser(@RequestBody User user) {
+        User created = userService.createUser(user);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
-    @GetMapping("/orders/{id}")
-    public ResponseEntity<?> getOrderById(@PathVariable String id) {
-        Order found = orderService.getById(id);
+    @GetMapping("/users/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable String id) {
+        User found = userService.getByID(id);
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
+
 }

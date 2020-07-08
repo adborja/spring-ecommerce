@@ -1,6 +1,7 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Product;
+//import co.edu.cedesistemas.ecommerce.model.document.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,6 +20,14 @@ public class ProductMapRepository implements ProductRepository {
         System.out.println("Finding from Map");
         return repository.values().stream()
                 .filter(s -> s.getName().contains(name))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Product> findByDescription(String description) {
+        System.out.println("Finding from Map");
+        return repository.values().stream()
+                .filter(s -> s.getDescription().contains(description))
                 .collect(Collectors.toList());
     }
 
