@@ -40,6 +40,5 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User updateUser
 
 }
