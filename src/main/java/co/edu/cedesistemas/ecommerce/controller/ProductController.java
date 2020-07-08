@@ -2,7 +2,7 @@ package co.edu.cedesistemas.ecommerce.controller;
 
 
 
-import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

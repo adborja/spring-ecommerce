@@ -1,6 +1,6 @@
 package co.edu.cedesistemas.ecommerce.controller;
 
-import co.edu.cedesistemas.ecommerce.model.User;
+import co.edu.cedesistemas.ecommerce.model.document.User;
 import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

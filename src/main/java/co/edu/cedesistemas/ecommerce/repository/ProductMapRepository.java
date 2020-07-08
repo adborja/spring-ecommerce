@@ -1,6 +1,6 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.model.Store;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;

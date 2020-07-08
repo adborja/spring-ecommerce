@@ -2,7 +2,7 @@ package co.edu.cedesistemas.ecommerce.service;
 
 
 
-import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;

@@ -1,7 +1,7 @@
 package co.edu.cedesistemas.ecommerce.repository;
 import org.springframework.stereotype.Repository;
 
-import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.document.Product;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
