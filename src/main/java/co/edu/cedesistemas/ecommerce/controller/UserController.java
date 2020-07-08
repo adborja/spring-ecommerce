@@ -1,4 +1,5 @@
-/*package co.edu.cedesistemas.ecommerce.controller;
+package co.edu.cedesistemas.ecommerce.controller;
+
 
 
 import co.edu.cedesistemas.ecommerce.model.document.User;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class UserController {
@@ -33,7 +35,7 @@ public class UserController {
     }
     @GetMapping("/users/by-email")
     public ResponseEntity<?> getUserByEmail(@RequestParam String email) {
-        List<User> found = userService.getByEmail(email);
+        Set<User> found = userService.getByEmail(email);
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
     @PutMapping("/users/{id}")
@@ -42,6 +44,4 @@ public class UserController {
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
-
 }
-*/
