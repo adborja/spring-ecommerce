@@ -5,7 +5,7 @@ import co.edu.cedesistemas.ecommerce.model.document.Order;
 import co.edu.cedesistemas.ecommerce.repository.mongo.OrderRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 import java.util.UUID;
 
 @Service
@@ -16,12 +16,16 @@ public class OrderService {
         this.repository = repository;
     }
 
-    public Order createOrder(Order product) {
-        product.setId(UUID.randomUUID().toString());
-        return repository.save(product);
+    public Order createOrder(Order order) {
+        order.setId(UUID.randomUUID().toString());
+        return repository.save(order);
     }
 
     public Order findById(final String id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    public Order getById(final String id) {
         return repository.findById(id).orElse(null);
     }
 
@@ -29,8 +33,5 @@ public class OrderService {
         repository.deleteById(id);
     }
 
-    public List<Order> findByNameLike(final String name) {
-        return repository.findByNameLike(name);
-    }
 
 }

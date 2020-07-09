@@ -19,6 +19,7 @@ public class ProductService {
 
     public Product createProduct(Product product) {
         product.setId(UUID.randomUUID().toString());
+        product.setCreatedAt(LocalDateTime.now());
         return repository.save(product);
     }
 
@@ -34,10 +35,9 @@ public class ProductService {
         return repository.findByNameLike(name);
     }
 
-    public List<Product> getByDescription(final String description) {
-        return repository.findByDescriptionLike(description);
+    public List<Product> getByDescription(final String desc) {
+        return repository.findByDescriptionLike(desc);
     }
-
 
     public Iterable<Product> getAllProducts() {
         return repository.findAll();

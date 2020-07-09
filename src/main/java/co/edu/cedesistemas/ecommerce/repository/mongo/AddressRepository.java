@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface AddressRepository extends MongoRepository<Address, String> {
-    List<Address> findByNameLike(String name);
+
 }

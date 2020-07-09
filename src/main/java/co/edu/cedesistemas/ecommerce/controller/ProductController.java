@@ -1,7 +1,6 @@
 package co.edu.cedesistemas.ecommerce.controller;
 
 import co.edu.cedesistemas.ecommerce.model.document.Product;
-import co.edu.cedesistemas.ecommerce.model.document.Store;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,15 +34,15 @@ public class ProductController {
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
-    @GetMapping("/products/by-name")
-    public ResponseEntity<?> getProductsByName(@RequestParam String name) {
-        List<Product> products = productService.getByName(name);
+    @GetMapping("/products/by-description")
+    public ResponseEntity<?> getByDescription(@RequestParam String desc) {
+        List<Product> products = productService.getByDescription(desc);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    @GetMapping("/products/by-description")
-    public ResponseEntity<?> getProductsBydescription(@RequestParam String description) {
-        List<Product> products = productService.getByDescription(description);
+    @GetMapping("/products/by-name")
+    public ResponseEntity<?> getProductsByName(@RequestParam String name) {
+        List<Product> products = productService.getByName(name);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 

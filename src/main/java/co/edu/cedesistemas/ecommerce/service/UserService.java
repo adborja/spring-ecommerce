@@ -1,7 +1,8 @@
 package co.edu.cedesistemas.ecommerce.service;
 
-import co.edu.cedesistemas.ecommerce.model.User;
-import co.edu.cedesistemas.ecommerce.repository.UserRepository;
+
+import co.edu.cedesistemas.ecommerce.model.document.User;
+import co.edu.cedesistemas.ecommerce.repository.mongo.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,19 +22,21 @@ public class UserService {
     }
 
     public User getById(final String id) {
-        return repository.findById(id);
+        return repository.findById(id).orElse(null);
     }
 
     public void delete(final String id) {
-        repository.remove(id);
+        repository.deleteById(id);
     }
 
     public List<User> getByEmail(final String email) {
-        return repository.findByEmail(email);
+        return repository.findByEmailLike(email);
     }
 
-    public Iterable<User> getAllUsers() {
-        return repository.findAll();
+    public User updateUserEmail(String id, User user) {
+        User user1 = getById(id);
+        user1.setEmail(user.getEmail());
+        return repository.save(user1);
     }
 }
 
