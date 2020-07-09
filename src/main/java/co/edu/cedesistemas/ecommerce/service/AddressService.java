@@ -5,7 +5,6 @@ import co.edu.cedesistemas.ecommerce.model.document.Address;
 import co.edu.cedesistemas.ecommerce.repository.mongo.AddressRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
 import java.util.UUID;
 
 @Service

@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Service
 public class UserService {
-    private final UserRepository repository;
+    private final UserRepository  repository;
 
     public UserService(final UserRepository repository) {
         this.repository = repository;
@@ -28,7 +28,7 @@ public class UserService {
     }
 
     // obtener un usuario dado su email
-    public Set<User> getByEmail(final String email) {
+    public User getByEmail(final String email) {
         return repository.findByEmail(email);
     }
 
@@ -41,7 +41,6 @@ public class UserService {
         found.setEmail(user.getEmail() != null ? user.getEmail() : found.getEmail());
         found.setName(user.getName() != null ? user.getName() : found.getName());
         found.setLastName(user.getLastName() != null ? user.getLastName() : found.getLastName());
-
         return repository.save(found);
     }
 
