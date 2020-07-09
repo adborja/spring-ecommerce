@@ -9,6 +9,7 @@ import co.edu.cedesistemas.ecommerce.service.StoreService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -60,21 +61,39 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
 
     @Override
     public <S extends OrderItem> S save(S entity) {
-        return null;
+        final String insertQ = "INSERT INTO order_item (id, orderId, productId, finalPrice, quantity)" +
+                " VALUES (:id, :orderId, :productId, :finalPrice, :quantity)";
+        SqlParameterSource namedParameters = new MapSqlParameterSource()
+                .addValue("id", entity.getId())
+                .addValue("orderId", entity.getOrderId())
+                .addValue("productId", entity.getProduct().getId())
+                .addValue("finalPrice", entity.getFinalPrice())
+                .addValue("quantity", entity.getQuantity());
+        jdbcTemplate.update(insertQ, namedParameters);
+        System.out.println("Updated Order Item in database");
+        return entity;
     }
 
     @Override
-    public OrderItem findById(String s) {
-        return null;
+    public OrderItem findById(String id) {
+        final String query = "SELECT * FROM order_item WHERE id = :id";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+        System.out.println("Finding By Id from database: " + id);
+        return jdbcTemplate.queryForObject(query, namedParameters, OrderItem.class);
     }
 
     @Override
-    public void remove(String s) {
-
+    public void remove(String id) {
+        final String query = "DELETE FROM order_item WHERE id = :id";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+        System.out.println("Removing in database");
+        jdbcTemplate.update(query, namedParameters);
     }
 
     @Override
     public Iterable<OrderItem> findAll() {
-        return null;
+        final String query = "SELECT * FROM order_item";
+        System.out.println("Finding from database");
+        return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(OrderItem.class));
     }
 }
