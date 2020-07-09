@@ -4,6 +4,7 @@ package co.edu.cedesistemas.ecommerce.repository;
 import co.edu.cedesistemas.ecommerce.model.Product;
 import co.edu.cedesistemas.ecommerce.model.document.User;
 import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -32,12 +33,12 @@ public class UserJdbcRepository implements UserRepository {
 
     @Override
     public <S extends User> S save(S entity) {
-        final String insertQ = "INSERT INTO user (id, name, lastname, email)" +
-                " VALUES (:id, :name, :lastname, :email)";
+        final String insertQ = "INSERT INTO user (id, name, lastName, email)" +
+                " VALUES (:id, :name, :lastName, :email)";
         SqlParameterSource namedParameters = new MapSqlParameterSource()
                 .addValue("id", entity.getId())
                 .addValue("name", entity.getName())
-                .addValue("lastname", entity.getLastName())
+                .addValue("lastName", entity.getLastName())
                 .addValue("email", entity.getEmail());
         jdbcTemplate.update(insertQ, namedParameters);
         System.out.println("Updated User in database");
@@ -53,12 +54,17 @@ public class UserJdbcRepository implements UserRepository {
     }
 
     @Override
-    public void remove(String s) {
-
+    public void remove(String id) {
+        final String query = "DELETE FROM user WHERE id = :id";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+        System.out.println("Removing in database");
+        jdbcTemplate.update(query, namedParameters);
     }
 
     @Override
     public Iterable<User> findAll() {
-        return null;
+        final String query = "SELECT * FROM user";
+        System.out.println("Finding from database");
+        return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(User.class));
     }
 }

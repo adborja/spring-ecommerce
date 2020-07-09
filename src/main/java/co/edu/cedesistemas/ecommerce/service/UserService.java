@@ -2,7 +2,8 @@ package co.edu.cedesistemas.ecommerce.service;
 
 //import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.model.document.User;
-import co.edu.cedesistemas.ecommerce.repository.UserRepository;
+//import co.edu.cedesistemas.ecommerce.repository.UserRepository;
+import co.edu.cedesistemas.ecommerce.repository.mongo.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,11 +23,11 @@ public class UserService {
     }
 
     public User getByID(final String id){
-        return repository.findById(id);
+        return repository.findById(id).orElse(null);
     }
 
     public void delete(final String id){
-        repository.remove(id);
+        repository.deleteById(id);
     }
 
     public List<User> getByEmail(final String email){
@@ -35,5 +36,14 @@ public class UserService {
 
     public Iterable<User> getAllUsers() {
         return repository.findAll();
+    }
+
+    public User updateUser (String id, User user)
+    {
+        User userUpdate = getByID(id);
+        userUpdate.setEmail(user.getEmail() != null ? user.getEmail() : userUpdate.getEmail());
+        userUpdate.setName(user.getName() != null ? user.getName() : userUpdate.getName());
+        userUpdate.setLastName(user.getLastName() != null ? user.getLastName() : userUpdate.getLastName());
+        return repository.save(userUpdate);
     }
 }
