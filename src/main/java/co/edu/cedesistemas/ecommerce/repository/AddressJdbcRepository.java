@@ -4,7 +4,7 @@ import co.edu.cedesistemas.ecommerce.model.Address;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public class AddressJdbcRepository implements AddressRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
