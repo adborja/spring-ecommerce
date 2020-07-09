@@ -33,7 +33,10 @@ public class UserService {
     }*/
 
     //Buscar usuario por email
-    public Set<User> getByEmail(final String email){
+    /*public Set<User> getByEmail(final String email){
+        return repository.findByEmail(email);
+    }*/
+    public User getByEmail(final String email) {
         return repository.findByEmail(email);
     }
 

@@ -10,5 +10,6 @@ import java.util.Set;
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
 
-    Set<User> findByEmail(String email);
+    //Set<User> findByEmail(String email);
+    User findByEmail(String email);
 }

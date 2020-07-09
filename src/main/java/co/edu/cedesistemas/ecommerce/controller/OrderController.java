@@ -1,12 +1,12 @@
 package co.edu.cedesistemas.ecommerce.controller;
 
+import co.edu.cedesistemas.ecommerce.model.document.Order;
 import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
+import co.edu.cedesistemas.ecommerce.model.document.Store;
 import co.edu.cedesistemas.ecommerce.service.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +25,15 @@ public class OrderController {
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
+    @PostMapping("/orders")
+    public ResponseEntity<?> createOrder(@RequestBody Order order) {
+        Order created = orderService.createOrder(order);
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/orders/{id}")
+    public ResponseEntity<?> getOrderById(@PathVariable String id) {
+        Order orderFound = orderService.getById(id);
+        return new ResponseEntity<>(orderFound, HttpStatus.OK);
+    }
 }

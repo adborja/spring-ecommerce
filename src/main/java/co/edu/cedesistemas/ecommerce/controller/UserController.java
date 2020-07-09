@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 @RestController
 public class UserController {
 
@@ -27,4 +29,16 @@ public class UserController {
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
+    @GetMapping("/users/by-email")
+    public ResponseEntity<?> getUserByEmail(@RequestParam String email) {
+       // Set<User> found = userService.getByEmail(email);
+        User found = userService.getByEmail(email);
+        return new ResponseEntity<>(found, HttpStatus.OK);
+    }
+
+    @PutMapping("/users/{id}")
+    public ResponseEntity<?> updateUserById(@PathVariable String id,@RequestBody User user) {
+        User userFound = userService.updateUser(id,user);
+        return new ResponseEntity<>(userFound, HttpStatus.OK);
+    }
 }

@@ -30,8 +30,8 @@ public class ProductController {
 
     @GetMapping("/products/{id}")
     public ResponseEntity<?> getProductsById(@PathVariable String id) {
-        Product found = productService.getById(id);
-        return new ResponseEntity<>(found, HttpStatus.OK);
+        Product productFound = productService.getById(id);
+        return new ResponseEntity<>(productFound, HttpStatus.OK);
     }
 
     @GetMapping("/products/by-name")
@@ -41,8 +41,8 @@ public class ProductController {
     }
 
     @GetMapping("/products/by-description")
-    public ResponseEntity<?> getProductsBydescription(@RequestParam String description) {
-        List<Product> products = productService.getByDescription(description);
+    public ResponseEntity<?> getProductsByDescription(@RequestParam String desc) {
+        List<Product> products = productService.getByDescription(desc);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
