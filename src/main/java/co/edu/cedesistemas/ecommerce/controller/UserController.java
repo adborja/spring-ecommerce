@@ -1,6 +1,7 @@
 package co.edu.cedesistemas.ecommerce.controller;
 
 import co.edu.cedesistemas.ecommerce.model.document.User;
+//import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
 public class UserController {
     private final UserService userService;
 
