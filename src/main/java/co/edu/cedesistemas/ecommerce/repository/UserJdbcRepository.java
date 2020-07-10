@@ -31,8 +31,18 @@ public class UserJdbcRepository implements UserRepository {
 
     @Override
     public <S extends User> S save(S entity) {
-        final String insertQ = "INSERT INTO user (id, name, lastName, email)" +
-                " VALUES (:id, :name, :lastName, :email)";
+        final String insertQ;
+
+        if (findById(entity.getId()).equals(null)) {//No existe el usuario
+            insertQ = "INSERT INTO user (id, name, lastName, email)" +
+                    " VALUES (:id, :name, :lastName, :email)";
+        }
+        else {//Existe el usuario
+            insertQ = "UPDATE user SET " +
+                    "name = :name, lastName = :lastName, email = :email " +
+                    "WHERE id = :id";
+        }
+
         SqlParameterSource namedParameters = new MapSqlParameterSource()
                 .addValue("id", entity.getId())
                 .addValue("name", entity.getName())
