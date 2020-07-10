@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@Service
+//@Service
 public class StoreService {
     private final StoreRepository repository;
 
@@ -40,5 +40,9 @@ public class StoreService {
 
     public Iterable<Store> getStoresByType(Store.Type type) {
         return repository.findByType(type);
+    }
+
+    public StoreRepository getRepository() {
+        return repository;
     }
 }

@@ -4,6 +4,7 @@ package co.edu.cedesistemas.ecommerce.controller;
 
 import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
+    @Autowired
     public ProductController(final ProductService productService) {
         this.productService = productService;
     }
@@ -29,7 +31,6 @@ public class ProductController {
         Iterable<Product> products = productService.getAllProduct();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
-
     @GetMapping("/products/{id}")
     public ResponseEntity<?> getProductById(@PathVariable String id) {
         Product found = productService.getById(id);

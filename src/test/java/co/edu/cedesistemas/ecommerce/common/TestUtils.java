@@ -16,6 +16,7 @@ public final class TestUtils {
         p.setId(UUID.randomUUID().toString());
         p.setName(name);
         p.setDescription(description);
+        p.setCreatedAt(LocalDateTime.now());
         return p;
     }
 

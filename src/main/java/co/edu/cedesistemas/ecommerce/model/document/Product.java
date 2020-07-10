@@ -12,7 +12,7 @@ public class Product {
     private String id;
     private String name;
     private String description;
-    private LocalDateTime createdAt;
+    public LocalDateTime createdAt;
 
     public String getId() {
         return id;
@@ -46,6 +46,8 @@ public class Product {
         this.createdAt = createdAt;
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,4 +60,8 @@ public class Product {
     public int hashCode() {
         return Objects.hash(id);
     }
-}
+
+
+
+    }
+

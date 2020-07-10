@@ -10,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +24,7 @@ import static org.mockito.Mockito.when;
 public class ProductServiceTest {
     @Mock private ProductRepository repository;
     @InjectMocks private ProductService service;
+    private LocalDateTime createdAt;
 
     @Test
     public void testCreateProduct() {
@@ -33,6 +35,9 @@ public class ProductServiceTest {
         when(repository.save(product)).thenReturn(product);
 
         Product created = service.createProduct(product);
+
+
+
 
         assertThat(created.getId(), notNullValue());
         assertThat(created.getCreatedAt(), notNullValue());

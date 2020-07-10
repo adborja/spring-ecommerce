@@ -6,7 +6,7 @@ import co.edu.cedesistemas.ecommerce.model.Store;
 
 import java.util.Map;
 
-@Repository
+//@Repository
 public class AddressMapRepository implements AddressRepository {
 
     protected final Map<String, Address> repository;

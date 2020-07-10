@@ -8,10 +8,17 @@ import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
 import co.edu.cedesistemas.ecommerce.model.document.Product;
 import co.edu.cedesistemas.ecommerce.model.document.Store;
 import co.edu.cedesistemas.ecommerce.model.document.User;
+import co.edu.cedesistemas.ecommerce.repository.mongo.ProductRepository;
+import co.edu.cedesistemas.ecommerce.service.ProductService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.internal.bytebuddy.utility.RandomString;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,10 +33,13 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
+@ExtendWith(MockitoExtension.class)
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = EcommerceApp.class)
 @AutoConfigureMockMvc
@@ -37,10 +47,22 @@ public class OrderControllerIT {
     @Autowired private MockMvc mvc;
     @Autowired private ObjectMapper objectMapper;
 
+    @Mock
+    private ProductRepository repository;
+    @InjectMocks
+    private ProductService service;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+
     @Test
     public void testCreateOrder() throws Exception {
         Store store = TestUtils.buildStore("test_controller_" + RandomString.make(10),
                 "+572549628", "Dg. 2 # 75a - 55", Store.Type.FOOD);
+
         mvc.perform(post("/stores")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(store)))

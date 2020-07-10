@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-@Service
+//@Service
 public class OrderService {
     private final OrderRepository repository;
 
@@ -24,7 +24,7 @@ public class OrderService {
         return repository.findById(id).orElse(null);
     }
 
-
-
-
+    public OrderRepository getRepository() {
+        return repository;
+    }
 }

@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+//@Configuration
 public class CommerceConfig {
     private static final String CONNECTOR_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/ecommerce";
@@ -36,4 +36,6 @@ public class CommerceConfig {
     public NamedParameterJdbcTemplate jdbcTemplate(BasicDataSource basicDataSource) {
         return new NamedParameterJdbcTemplate(basicDataSource);
     }
+
+
 }

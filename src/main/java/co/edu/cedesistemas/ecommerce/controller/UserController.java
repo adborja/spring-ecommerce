@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@RestController
+//@RestController
 public class UserController {
     private final UserService userService;
 
@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public ResponseEntity<?> getUserById(@PathVariable String id) {
-        User found = userService.getById(id);
+        User found = userService.getById(id).orElse(null);
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 

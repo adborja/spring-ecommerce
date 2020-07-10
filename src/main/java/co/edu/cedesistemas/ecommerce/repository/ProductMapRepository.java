@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository
-@Primary
+//@Repository
+//@Primary
 public class ProductMapRepository implements ProductRepository {
     protected final Map<String, Product> repository;
 
@@ -44,9 +44,11 @@ public class ProductMapRepository implements ProductRepository {
     public List<Product> findByNameLike(String name) {
         return null;
     }
-
+/*
     @Override
     public List<Product> findByDescriptionLike(String description) {
         return null;
     }
+
+ */
 }
