@@ -1,9 +1,7 @@
 package co.edu.cedesistemas.ecommerce.controller;
 
-import co.edu.cedesistemas.ecommerce.model.document.Order;
 import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
-import co.edu.cedesistemas.ecommerce.model.document.Store;
-import co.edu.cedesistemas.ecommerce.service.OrderItemService;
+import co.edu.cedesistemas.ecommerce.service.ItemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,28 +13,28 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class OrderItemController {
-    private final OrderItemService orderItemService;
+public class ItemController {
+    private final ItemService itemService;
 
-    public OrderItemController (final OrderItemService orderItemService) {
-        this.orderItemService = orderItemService;
+    public ItemController(final ItemService itemService) {
+        this.itemService = itemService;
     }
 
     @PostMapping("/orders")
     public ResponseEntity<?> createOrderItem(@RequestBody OrderItem orderItem) {
-        OrderItem created = orderItemService.createOrderItem(orderItem);
+        OrderItem created = itemService.createOrderItem(orderItem);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @GetMapping("/orders/{id}")
     public ResponseEntity<?> getOrderItemById(@PathVariable String id) {
-        OrderItem found = orderItemService.getById(id);
+        OrderItem found = itemService.getById(id);
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
     /**@GetMapping("/orders/{id}/items")
-    public ResponseEntity<?> getOrderItemByOrder(@PathVariable String orderId) {
-        List<OrderItem> orders = orderItemService.findAllByOrder(orderId);
+    public ResponseEntity<?> getOrderItemByOrder(@PathVariable String id) {
+        List<OrderItem> orders = itemService.findAllByOrder(id);
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }**/
 }

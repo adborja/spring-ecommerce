@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface OrderItemRepository extends MongoRepository<OrderItem, String> {
-    //List<OrderItem> findByOrderIdMongo(String orderId);
+public interface ItemRepository extends MongoRepository<OrderItem, String> {
+    //List<OrderItem> findAllByOrder(String id);
 }

@@ -57,17 +57,10 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
         }
     }**/
 
-    public List<OrderItem> findAllByOrderMongo(String orderId) {
+    public List<OrderItem> findAllByOrder(String id) {
         final String query = "SELECT * FROM order_item WHERE orderId = :orderId";
-        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("orderId", orderId);
-        System.out.println("Finding By Id from database: " + orderId);
-        return jdbcTemplate.queryForList (query, namedParameters, OrderItem.class);
-    }
-
-    public List<OrderItem> findAllByOrder(String orderId) {
-        final String query = "SELECT * FROM order_item WHERE orderId = :orderId";
-        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("orderId", orderId);
-        System.out.println("Finding By Id from database: " + orderId);
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("orderId", id);
+        System.out.println("Finding By Id from database: " + id);
         return jdbcTemplate.queryForList (query, namedParameters, OrderItem.class);
     }
 
