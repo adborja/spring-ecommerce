@@ -1,20 +1,5 @@
 package co.edu.cedesistemas.ecommerce;
 
-import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
-import co.edu.cedesistemas.ecommerce.model.Order;
-import co.edu.cedesistemas.ecommerce.model.OrderItem;
-import co.edu.cedesistemas.ecommerce.model.Product;
-import co.edu.cedesistemas.ecommerce.model.Store;
-import co.edu.cedesistemas.ecommerce.service.OrderItemService;
-import co.edu.cedesistemas.ecommerce.service.ProductService;
-import co.edu.cedesistemas.ecommerce.service.StoreService;
-import co.edu.cedesistemas.ecommerce.service.UserService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.List;
-
 public class EcommerceAppTaller8 {
     public static void main(String[] args) {
         loadFromAnnotations();

@@ -1,21 +1,18 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
-import co.edu.cedesistemas.ecommerce.model.Product;
-import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.model.OrderItem;
 //import co.edu.cedesistemas.ecommerce.service.ProductService;
-import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
-import co.edu.cedesistemas.ecommerce.service.ProductService;
-import co.edu.cedesistemas.ecommerce.service.StoreService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+//import org.springframework.context.ApplicationContext;
+//import co.edu.cedesistemas.ecommerce.model.Product;
+//import org.springframework.context.annotation.Primary;
+//import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.RowMapper;
+//import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.simple.SimpleJdbcCall;
-import org.springframework.stereotype.Repository;
+//import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+//import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +28,7 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    @Override
+    /**@Override
     public List<OrderItem> findAllByOrder(String orderId) {
         SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate.getJdbcTemplate())
                 .withProcedureName("get_order_items")
@@ -53,10 +50,18 @@ public class OrderItemJdbcRepository implements OrderItemRepository {
             orderItem.setId(rs.getString("id"));
             orderItem.setOrderId(rs.getString("orderId"));
             orderItem.setProduct(productService.getById(rs.getString("productId")));
+            //orderItem.setProduct(null);
             orderItem.setFinalPrice(rs.getFloat("finalPrice"));
             orderItem.setQuantity(rs.getInt("quantity"));
             return orderItem;
         }
+    }**/
+
+    public List<OrderItem> findAllByOrder(String orderId) {
+        final String query = "SELECT * FROM order_item WHERE orderId = :orderId";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("orderId", orderId);
+        System.out.println("Finding By Id from database: " + orderId);
+        return jdbcTemplate.queryForList (query, namedParameters, OrderItem.class);
     }
 
     @Override
