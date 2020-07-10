@@ -16,6 +16,12 @@ public class OrderItemMapRepository implements OrderItemRepository {
         this.repository= repository;
     }
 
+    public List<OrderItem> findAllByOrderLike(final String orderId) {
+        return repository.values().stream()
+                .filter(s -> s.getOrderId().equals(orderId))
+                .collect(Collectors.toList());
+    }
+
     public List<OrderItem> findAllByOrder(final String orderId) {
         return repository.values().stream()
                 .filter(s -> s.getOrderId().equals(orderId))

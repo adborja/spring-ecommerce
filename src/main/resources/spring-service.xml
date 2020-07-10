@@ -23,7 +23,7 @@
         <constructor-arg name="repository" ref="product-jdbc-repository" />
     </bean>
 
-    <bean id="orderItemService" class="co.edu.cedesistemas.ecommerce.service.ItemService" >
+    <bean id="orderItemService" class="co.edu.cedesistemas.ecommerce.service.OrderItemService" >
         <!--<constructor-arg name="repository" ref="userRepository" />-->
         <constructor-arg name="repository" ref="order-item-jdbc-repository" />
     </bean>

@@ -1,17 +1,16 @@
 package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
-import co.edu.cedesistemas.ecommerce.repository.mongo.ItemRepository;
+import co.edu.cedesistemas.ecommerce.repository.mongo.OrderItemRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ItemService {
-    private final ItemRepository repository;
+public class OrderItemService {
+    private final OrderItemRepository repository;
 
-    public ItemService(final ItemRepository repository) {
+    public OrderItemService(final OrderItemRepository repository) {
         this.repository = repository;
     }
 
@@ -24,6 +23,8 @@ public class ItemService {
          return repository.findById(id).orElse(null);
      }
 
+    //Tiene comentarios porque genera error cuando se ejecuta el test.
+    //No puede resolver OrderItem y sale error.
      /**public List<OrderItem> findAllByOrder(String id) {
         return repository.findAllByOrder(id);
      }**/
