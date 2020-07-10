@@ -34,9 +34,9 @@ public class OrderItemController {
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
-    @GetMapping("/orders/{id}/items")
+    /**@GetMapping("/orders/{id}/items")
     public ResponseEntity<?> getOrderItemByOrder(@PathVariable String orderId) {
         List<OrderItem> orders = orderItemService.findAllByOrder(orderId);
         return new ResponseEntity<>(orders, HttpStatus.OK);
-    }
+    }**/
 }

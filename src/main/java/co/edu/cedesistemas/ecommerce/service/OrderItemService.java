@@ -2,9 +2,12 @@ package co.edu.cedesistemas.ecommerce.service;
 
 import co.edu.cedesistemas.ecommerce.model.document.OrderItem;
 import co.edu.cedesistemas.ecommerce.repository.mongo.OrderItemRepository;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
+@Service
 public class OrderItemService {
     private final OrderItemRepository repository;
 
@@ -20,5 +23,9 @@ public class OrderItemService {
      public OrderItem getById(final String id) {
      return repository.findById(id).orElse(null);
      }
+
+     /**public List<OrderItem> findAllByOrder(String orderId) {
+        return repository.findByOrderIdMongo(orderId);
+     }**/
 
 }

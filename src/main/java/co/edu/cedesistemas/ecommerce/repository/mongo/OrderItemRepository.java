@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface OrderItemRepository extends MongoRepository<OrderItem, String> {
-
+    //List<OrderItem> findByOrderIdMongo(String orderId);
 }
