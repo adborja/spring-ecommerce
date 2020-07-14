@@ -24,11 +24,21 @@ public class UserService {
         repository.remove(id);
     }
 
-    /*public List<User> getByEmail(final String email){
-        return repository.findByEmail(email);
-    }*/
+    public  User getByEmail(final String email){
+        return (User) repository.findByEmail(email);
+    }
 
     public Iterable<User> getAllUser(){
         return repository.findAll();
+    }
+
+
+    public User updateUser(String id, User user) {
+        User found = getById(id);
+        found.setEmail(user.getEmail() != null ? user.getEmail() : found.getEmail());
+        found.setName(user.getName() != null ? user.getName() : found.getName());
+        found.setLastName(user.getLastName() != null ? user.getLastName() : found.getLastName());
+
+        return repository.save(found);
     }
 }
