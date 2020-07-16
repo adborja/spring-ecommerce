@@ -1,6 +1,6 @@
 package co.edu.cedesistemas.ecommerce.controller;
 
-import co.edu.cedesistemas.ecommerce.model.document.Store;
+import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.service.StoreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +35,7 @@ public class StoreController {
 
     @GetMapping("/stores/by-name")
     public ResponseEntity<?> getStoresByName(@RequestParam String name) {
-        List<Store> stores = storeService.getByName(name);
+        List<Store> stores = (List<Store>) storeService.getByName(name);
         return new ResponseEntity<>(stores, HttpStatus.OK);
     }
 

@@ -38,4 +38,8 @@ public class StoreService {
     public Iterable<Store> getAllStores() {
         return repository.findAll();
     }
+
+    public Iterable<Store> getStoresByType(Store.Type type) {
+        return null;
+    }
 }
