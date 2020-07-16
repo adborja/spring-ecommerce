@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Repository
+//@Repository
 public class AddressMapRepository implements AddressRepository {
     protected final Map<String, Address> repository;
 

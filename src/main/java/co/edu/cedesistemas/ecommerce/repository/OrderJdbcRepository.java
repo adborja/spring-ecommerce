@@ -3,6 +3,7 @@ package co.edu.cedesistemas.ecommerce.repository;
 import co.edu.cedesistemas.ecommerce.model.Order;
 import co.edu.cedesistemas.ecommerce.model.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -15,7 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
-@Repository
+//@Repository
+//@Primary
 public class OrderJdbcRepository implements OrderRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 

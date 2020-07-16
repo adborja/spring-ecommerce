@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
-@Repository
+//@Repository
 public class OrderItemJdbcRepository implements OrderItemRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 

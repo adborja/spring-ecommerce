@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-@Repository
+//@Repository
 public class OrderMapRepository implements OrderRepository {
     protected final Map<String, Order> repository;
 

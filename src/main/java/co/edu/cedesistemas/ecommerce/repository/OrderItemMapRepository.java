@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-@Repository
+//@Repository
 public class OrderItemMapRepository implements OrderItemRepository {
     protected final Map<String, OrderItem> repository;
 

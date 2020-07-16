@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-@Repository
+//@Repository
 public class UserMapRepository implements UserRepository {
     protected final Map<String, User> repository;
 
