@@ -1,4 +1,4 @@
-package co.edu.cedesistemas.ecommerce.controller;
+/*package co.edu.cedesistemas.ecommerce.controller;
 
 
 import co.edu.cedesistemas.ecommerce.model.document.*;
@@ -44,13 +44,13 @@ public class OrderController {
     }
 
     @PostMapping("/products")
-    public ResponseEntity<?> createAddress(@RequestBody Product product) {
+    public ResponseEntity<?> createProduct(@RequestBody Product product) {
         Product created = productService.createProduct(product);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @PostMapping("/orders")
-    public ResponseEntity<?> createAddress(@RequestBody Order order) {
+    public ResponseEntity<?> createOrder(@RequestBody Order order) {
         Order created = orderService.createOrder(order);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
@@ -68,4 +68,4 @@ public class OrderController {
     }
 
 
-}
+}*/
