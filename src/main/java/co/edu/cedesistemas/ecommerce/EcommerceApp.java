@@ -1,8 +1,8 @@
 package co.edu.cedesistemas.ecommerce;
 
 import co.edu.cedesistemas.ecommerce.config.CommerceConfig;
-import co.edu.cedesistemas.ecommerce.model.Product;
-import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.model.document.Product;
+import co.edu.cedesistemas.ecommerce.model.document.Store;
 import co.edu.cedesistemas.ecommerce.model.User;
 import co.edu.cedesistemas.ecommerce.service.ProductService;
 import co.edu.cedesistemas.ecommerce.service.StoreService;

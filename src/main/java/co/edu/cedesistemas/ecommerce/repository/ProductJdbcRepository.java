@@ -1,10 +1,13 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Product;
+import co.edu.cedesistemas.ecommerce.model.User;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class ProductJdbcRepository implements ProductRepository{
@@ -39,4 +42,5 @@ public class ProductJdbcRepository implements ProductRepository{
     public Iterable<Product> findAll() {
         return null;
     }
+
 }

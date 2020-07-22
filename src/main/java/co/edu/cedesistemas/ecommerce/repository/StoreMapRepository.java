@@ -1,11 +1,16 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Store;
+import co.edu.cedesistemas.ecommerce.model.User;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Repository
 public class StoreMapRepository implements StoreRepository {
     protected final Map<String, Store> repository;
 
@@ -13,11 +18,10 @@ public class StoreMapRepository implements StoreRepository {
         this.repository = repository;
     }
 
+
     @Override
     public <S extends Store> S save(S entity) {
-        repository.put(entity.getId(), entity);
-        System.out.println("Saving to map");
-        return entity;
+        return null;
     }
 
     @Override
@@ -32,6 +36,7 @@ public class StoreMapRepository implements StoreRepository {
         return repository.values();
     }
 
+
     @Override
     public void remove(String id) {
         System.out.println("Removing in Map");
@@ -44,6 +49,7 @@ public class StoreMapRepository implements StoreRepository {
                 .filter(s -> s.getName().contains(name))
                 .collect(Collectors.toList());
     }
+
 
     @Override
     public List<Store> findByType(Store.Type type) {

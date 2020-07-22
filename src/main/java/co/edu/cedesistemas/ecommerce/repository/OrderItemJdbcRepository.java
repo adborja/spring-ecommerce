@@ -1,7 +1,11 @@
 package co.edu.cedesistemas.ecommerce.repository;
 
 import co.edu.cedesistemas.ecommerce.model.Order;
+import co.edu.cedesistemas.ecommerce.model.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+
+import java.util.List;
 
 @Repository
 public class OrderItemJdbcRepository implements OrderRepository {
@@ -24,4 +28,5 @@ public class OrderItemJdbcRepository implements OrderRepository {
     public Iterable<Order> findAll() {
         return null;
     }
+
 }

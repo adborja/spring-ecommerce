@@ -10,5 +10,4 @@ public interface Repository<T, ID> {
     void remove(ID id);
     Iterable<T> findAll();
 
-    List<User> findByEmail(String email);
 }
